@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    
+
     [Header("Sprites")]
     private SpriteRenderer img; // automatically grabs the Image component
     public Sprite rockSprite;
@@ -13,11 +13,18 @@ public class Enemy : MonoBehaviour
 
     public Player.Choice CurrentChoice { get; private set; } = Player.Choice.None;
 
-    // Enemy picks randomly (1..3)
+    // Enemy picks randomly (0..3)
     public void PickRandomChoice()
     {
-        CurrentChoice = (Player.Choice)Random.Range(1, 3); // 1..3
+        int rand = Random.Range(0, 3); // 0=Rock,1=Paper,2=Scissors
+        CurrentChoice = (Player.Choice)rand;
+
+        // just in case
+        if (CurrentChoice == Player.Choice.None)
+            CurrentChoice = Player.Choice.Rock;
+
         SetSprite(CurrentChoice);
+        Debug.Log("[Enemy] chose " + CurrentChoice);
     }
 
     // Reset to default sprite & "None" choice
@@ -51,5 +58,8 @@ public class Enemy : MonoBehaviour
 
         if (img != null) img.sprite = chosen;
     }
-      
+
 }
+
+
+     

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static Player;
 
 public class Player : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour
     public float holdTimeThreshold  = 0.5f;
     public float swipeThreshold     = 50f;
 
-    private Vector3 mouseDownPos;
+    private Vector2 mouseDownPos;
     private float mouseDownTime;
-    private bool isHolding = false;
+    public bool isHolding = false;
 
     public Choice CurrentChoice { get; private set; } = Choice.None;
 
@@ -61,18 +62,30 @@ public class Player : MonoBehaviour
     Choice DetectChoice()
     {
         float heldTime = Time.time - mouseDownTime;
-        Vector3 delta  = Input.mousePosition - mouseDownPos;
 
-        if (Mathf.Abs(delta.x) > swipeThreshold && delta.x < 0.5f)
+        // 1. Detect swipe first (any direction)
+        Vector2 endTouch = Input.mousePosition;
+        Vector2 swipeDelta = endTouch - mouseDownPos;
+
+        if (swipeDelta.magnitude > 50f) // min swipe distance in pixels
+        {
             return Choice.Scissors;
+        }
 
-        if (isHolding)
+        // 2. If no swipe, check if it was a hold
+        if (heldTime > holdTimeThreshold)
+        {
             return Choice.Paper;
+        }
 
-        if (heldTime <= clickTimeThreshold)
-            return Choice.Rock;
-
+        // 3. If neither swipe nor hold, it’s a quick tap
         return Choice.Rock;
+    }
+
+    public void SetChoice(Player.Choice choice)
+    {
+        CurrentChoice = choice;
+        SetSprite(choice);
     }
 
     // Public: set sprite according to a choice (handles None -> defaultSprite)
