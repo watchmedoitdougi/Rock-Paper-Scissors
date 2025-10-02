@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class BattleManager : MonoBehaviour
 {
@@ -23,10 +25,12 @@ public class BattleManager : MonoBehaviour
     private Choice playerChoice = Choice.None;
     private Choice enemyChoice = Choice.None;
 
-    private int gold = 0;
     private int roundCount = 0;
     private int playerWins = 0;
     private int enemyWins = 0;
+
+    private Vector3 dragStart;
+    private float holdTime;
 
     private bool inputLocked = false;
 
@@ -90,14 +94,12 @@ public class BattleManager : MonoBehaviour
         // If player didn't pick
         if (playerChoice == Choice.None)
         {
-            resultText.text = "You didn’t choose! You Lose!";
+            resultText.text = "Choose next time!";
             enemyWins++;
-            gold += 1; // losing reward
+            AddGold(1); // losing reward
         }
         else
         {
-            // Enemy randomly picks
-            enemyChoice = (Choice)Random.Range(1, 4);
             EvaluateWinner();
         }
 
@@ -114,35 +116,50 @@ public class BattleManager : MonoBehaviour
     {
         if (inputLocked) return;
 
-        // Rock: quick tap
+        // Start tracking
         if (Input.GetMouseButtonDown(0))
         {
-            playerChoice = Choice.Rock;
-            resultText.text = "You chose Rock!";
+            dragStart = Input.mousePosition;
+            holdTime = 0f;
         }
 
-        // Paper: hold
+        // While holding, count time
         if (Input.GetMouseButton(0))
         {
-            playerChoice = Choice.Paper;
-            resultText.text = "You chose Paper!";
+            holdTime += Time.deltaTime;
         }
 
-        // Scissors: drag/swipe
-        if (Input.GetMouseButton(0) && Mathf.Abs(Input.GetAxis("Mouse X")) > 0.2f)
+        // Decide only when released
+        if (Input.GetMouseButtonUp(0))
         {
-            playerChoice = Choice.Scissors;
-            resultText.text = "You chose Scissors!";
+            float dragDistance = Input.mousePosition.x - dragStart.x;
+
+            if (Mathf.Abs(dragDistance) > 50f) // swipe threshold
+            {
+                playerChoice = Choice.Scissors;
+                resultText.text = "You chose Scissors!";
+            }
+            else if (holdTime > 0.3f) // held long enough
+            {
+                playerChoice = Choice.Paper;
+                resultText.text = "You chose Paper!";
+            }
+            else // quick tap
+            {
+                playerChoice = Choice.Rock;
+                resultText.text = "You chose Rock!";
+            }
         }
+
+
     }
 
     void EvaluateWinner()
     {
         if (playerChoice == enemyChoice)
         {
-            // Draw case → immediately restart the countdown
-            resultText.text = "Draw! Both chose " + playerChoice + ". Try again!";
-            StartCoroutine(StartBattleRound());
+            // Draw → handled in EndBattleRound
+            EndBattleRound("Draw! Both chose " + playerChoice + ". Try again!");
             return;
         }
 
@@ -151,26 +168,48 @@ public class BattleManager : MonoBehaviour
             (playerChoice == Choice.Paper && enemyChoice == Choice.Rock) ||
             (playerChoice == Choice.Scissors && enemyChoice == Choice.Paper))
         {
-            resultText.text = "You Win! Enemy chose " + enemyChoice;
-            playerWins++;
-            gold += 3;
+            EndBattleRound("You Win!");
         }
-        else // Player loses
+        else
         {
-            resultText.text = "You Lose! Enemy chose " + enemyChoice;
-            enemyWins++;
-            gold += 1;
+            EndBattleRound("You Lose!");
         }
 
-        UpdateGoldText();
         roundCount++;
-
-        // Now the round really ends
-        bestOf3Button.gameObject.SetActive(true);
-        mainMenuButton.gameObject.SetActive(true);
     }
 
-    // Button callbacks
+    void EndBattleRound(string result)
+    {
+        resultText.text = result;
+
+        if (result.Contains("Win"))
+        {
+            AddGold(2);
+            UpdateGoldText();
+
+            // Won → only main menu
+            mainMenuButton.gameObject.SetActive(true);
+            bestOf3Button.gameObject.SetActive(false);
+        }
+        else if (result.Contains("Lose"))
+        {
+            // Lost → give redemption chance
+            mainMenuButton.gameObject.SetActive(true);
+            bestOf3Button.gameObject.SetActive(true);
+        }
+        else if (result.Contains("Draw"))
+        {
+            // Wait a moment before restarting the round
+            StartCoroutine(RestartAfterDelay());
+        }
+    }
+
+    IEnumerator RestartAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f); // delay to show result
+        StartCoroutine(StartBattleRound());
+    }
+
     public void PlayBestOf3()
     {
         bestOf3Button.gameObject.SetActive(false);
@@ -182,25 +221,48 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            // Evaluate best of 3
             if (playerWins > enemyWins)
             {
-                resultText.text = "You won the Best of 3! Bonus +5 Gold!";
-                gold += 5;
+                resultText.text = "Nice! +5 Bonus !";
+                AddGold(5);
             }
             else
             {
-                resultText.text = "You lost the Best of 3. No bonus.";
+                resultText.text = "Loser! No Bonus";
             }
 
             UpdateGoldText();
+
+            // After redemption, only main menu shows
+            mainMenuButton.gameObject.SetActive(true);
+
+            // Reset counters
+            roundCount = 0;
+            playerWins = 0;
+            enemyWins = 0;
         }
     }
 
     public void GoToMainMenu()
     {
-        // Replace with scene loading when Main Menu is built
-        Debug.Log("Return to main menu scene here");
+        SceneManager.LoadScene("MainMenu");
     }
 
+    void AddGold(int amount)
+    {
+        int currentGold = PlayerPrefs.GetInt("Gold", 0); // load existing or 0
+        currentGold += amount;
+        PlayerPrefs.SetInt("Gold", currentGold);
+        PlayerPrefs.Save();
+        UpdateGoldText();
+    }
+
+    void UpdateGoldText()
+    {
+        int currentGold = PlayerPrefs.GetInt("Gold", 0);
+        if (goldText != null)
+        {
+            goldText.text = "Gold: " + currentGold;
+        }
+    }
 }
