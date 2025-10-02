@@ -1,126 +1,206 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using static Player;
+using TMPro;
 
-public class GameManager : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public TMP_Text rockText;
+    public TMP_Text paperText;
+    public TMP_Text scissorsText;
+    public TMP_Text shootText;
+    public TMP_Text resultText;
 
-    [Header("References")]
-    public Player player;
-    public Enemy enemy;
-    public Text resultText;
+    public TMP_Text goldText;
 
-    private Player.Choice pendingPlayerChoice = Player.Choice.None;
-    private Coroutine countdownCoroutine;
+    public Button bestOf3Button;
+    public Button mainMenuButton;
 
-    void StartNewRound()
+    public PlayerBattle player;
+    public EnemyBattle enemy;
+
+    private enum Choice { None, Rock, Paper, Scissors }
+    private Choice playerChoice = Choice.None;
+    private Choice enemyChoice = Choice.None;
+
+    private int gold = 0;
+    private int roundCount = 0;
+    private int playerWins = 0;
+    private int enemyWins = 0;
+
+    private bool inputLocked = false;
+
+    void Start()
     {
-        player.ResetToDefault();
-        enemy.ResetToDefault();
-        resultText.text = "";
-
-        pendingPlayerChoice = Player.Choice.None;
-        playerCanPick = true;
-        countdownCoroutine = StartCoroutine(PlayerPickCountdown());
+        bestOf3Button.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
+        StartCoroutine(StartBattleRound());
     }
 
-    IEnumerator PlayerPickCountdown()
+    IEnumerator StartBattleRound()
     {
-        float timer = 3f;
-        while (timer > 0f)
-        {
-            resultText.text = "Pick in: " + Mathf.Ceil(timer);
-            timer -= Time.deltaTime;
-            yield return null;
-        }
+        inputLocked = false;
+        playerChoice = Choice.None;
+        enemyChoice = Choice.None;
+        resultText.text = "";
 
-        playerCanPick = false;
+        // Reset sprites to default at the start
+        player.ResetSprite();
+        enemy.ResetSprite();
 
-        // Show the player's choice now
-        if (pendingPlayerChoice == Player.Choice.None)
+        // Hide all countdown texts
+        rockText.gameObject.SetActive(false);
+        paperText.gameObject.SetActive(false);
+        scissorsText.gameObject.SetActive(false);
+        shootText.gameObject.SetActive(false);
+
+        // Show Rock
+        rockText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        rockText.gameObject.SetActive(false);
+
+        // Show Paper
+        paperText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        paperText.gameObject.SetActive(false);
+
+        // Show Scissors
+        scissorsText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        scissorsText.gameObject.SetActive(false);
+
+        // Show Shoot!
+        shootText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1);
+        shootText.gameObject.SetActive(false);
+
+        // Give player 1 second to input
+        yield return new WaitForSeconds(1);
+
+        // Lock input
+        inputLocked = true;
+
+        // Enemy always picks after countdown
+        enemyChoice = (Choice)Random.Range(1, 4);
+
+        // Reveal both choices visually
+        player.ShowChoice(playerChoice.ToString());
+        enemy.ShowChoice(enemyChoice.ToString());
+
+        // If player didn't pick
+        if (playerChoice == Choice.None)
         {
-            player.SetChoice(Player.Choice.None); // automatic loss
-            Debug.Log("[GameManager] Player didn't pick - automatic loss.");
+            resultText.text = "You didn’t choose! You Lose!";
+            enemyWins++;
+            gold += 1; // losing reward
         }
         else
         {
-            player.SetChoice(pendingPlayerChoice);
+            // Enemy randomly picks
+            enemyChoice = (Choice)Random.Range(1, 4);
+            EvaluateWinner();
         }
 
-        void Awake()
+        UpdateGoldText();
+
+        roundCount++;
+
+        // After each round, ask if they want Best of 3 or return
+        bestOf3Button.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true);
+    }
+
+    void Update()
     {
-        // simple singleton guard
-        if (Instance != null && Instance != this)
+        if (inputLocked) return;
+
+        // Rock: quick tap
+        if (Input.GetMouseButtonDown(0))
         {
-            Destroy(gameObject);
+            playerChoice = Choice.Rock;
+            resultText.text = "You chose Rock!";
+        }
+
+        // Paper: hold
+        if (Input.GetMouseButton(0))
+        {
+            playerChoice = Choice.Paper;
+            resultText.text = "You chose Paper!";
+        }
+
+        // Scissors: drag/swipe
+        if (Input.GetMouseButton(0) && Mathf.Abs(Input.GetAxis("Mouse X")) > 0.2f)
+        {
+            playerChoice = Choice.Scissors;
+            resultText.text = "You chose Scissors!";
+        }
+    }
+
+    void EvaluateWinner()
+    {
+        if (playerChoice == enemyChoice)
+        {
+            // Draw case → immediately restart the countdown
+            resultText.text = "Draw! Both chose " + playerChoice + ". Try again!";
+            StartCoroutine(StartBattleRound());
             return;
         }
-        Instance = this;
-    }
 
-    void Start()
+        // Player wins
+        if ((playerChoice == Choice.Rock && enemyChoice == Choice.Scissors) ||
+            (playerChoice == Choice.Paper && enemyChoice == Choice.Rock) ||
+            (playerChoice == Choice.Scissors && enemyChoice == Choice.Paper))
         {
-            StartNewRound();
+            resultText.text = "You Win! Enemy chose " + enemyChoice;
+            playerWins++;
+            gold += 3;
+        }
+        else // Player loses
+        {
+            resultText.text = "You Lose! Enemy chose " + enemyChoice;
+            enemyWins++;
+            gold += 1;
         }
 
-         // Enemy picks after player time is up
-        enemy.PickRandomChoice();
+        UpdateGoldText();
+        roundCount++;
 
-        // Determine winner
-        string result = DetermineWinner(player.CurrentChoice, enemy.CurrentChoice);
-        if (resultText != null) resultText.text = result;
-
-        // Wait 2 seconds then start next round
-        yield return new WaitForSeconds(2f);
-        StartNewRound();
+        // Now the round really ends
+        bestOf3Button.gameObject.SetActive(true);
+        mainMenuButton.gameObject.SetActive(true);
     }
 
-    public bool CanPlayerPick()
+    // Button callbacks
+    public void PlayBestOf3()
     {
-        return playerCanPick;
-    }
+        bestOf3Button.gameObject.SetActive(false);
+        mainMenuButton.gameObject.SetActive(false);
 
-    string DetermineWinner(Player.Choice playerChoice, Player.Choice enemyChoice)
-    {
-        if (playerChoice == enemyChoice) return "Draw!";
-        if ((playerChoice == Player.Choice.Rock && enemyChoice == Player.Choice.Scissors) ||
-            (playerChoice == Player.Choice.Paper && enemyChoice == Player.Choice.Rock) ||
-            (playerChoice == Player.Choice.Scissors && enemyChoice == Player.Choice.Paper))
-            return "Player Wins!";
-        return "Enemy Wins!";
-    }
-
-    // Called by Player when they finish input
-    public void PlayerHasChosen(Player.Choice choice)
-    {
-        if (!playerCanPick)
-            return; // ignore input after time is up
-
-        player.SetChoice(choice);
-        player.SetSprite(choice);
-        playerCanPick = false;
-
-        if (player.CurrentChoice == Player.Choice.None)
+        if (roundCount < 3)
         {
-            player.SetChoice(Player.Choice.None); // default sprite
-            Debug.Log("[GameManager] Player didn't pick - automatic loss.");
+            StartCoroutine(StartBattleRound());
         }
+        else
+        {
+            // Evaluate best of 3
+            if (playerWins > enemyWins)
+            {
+                resultText.text = "You won the Best of 3! Bonus +5 Gold!";
+                gold += 5;
+            }
+            else
+            {
+                resultText.text = "You lost the Best of 3. No bonus.";
+            }
 
-        // Enemy picks after player time is up
-        enemy.PickRandomChoice();
-
-        string result = DetermineWinner(player.CurrentChoice, enemy.CurrentChoice);
-        if (resultText != null) resultText.text = result;
-
-        // Wait 2 seconds then start next round
-        StartCoroutine(WaitAndStartNextRound(2f));
+            UpdateGoldText();
+        }
     }
 
-    IEnumerator WaitAndStartNextRound(float delay)
+    public void GoToMainMenu()
     {
-        yield return new WaitForSeconds(delay);
-        StartNewRound();
+        // Replace with scene loading when Main Menu is built
+        Debug.Log("Return to main menu scene here");
     }
+
 }
