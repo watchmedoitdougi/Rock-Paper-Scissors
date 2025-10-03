@@ -15,4 +15,8 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("ShopScene");
     }
 
+    public void Start2player()
+    {
+        SceneManager.LoadScene("2PlayerScene");
+    }
 }

@@ -159,7 +159,7 @@ public class BattleManager : MonoBehaviour
         if (playerChoice == enemyChoice)
         {
             // Draw → handled in EndBattleRound
-            EndBattleRound("Draw! Both chose " + playerChoice + ". Try again!");
+            EndBattleRound("Draw! Again!");
             return;
         }
 
