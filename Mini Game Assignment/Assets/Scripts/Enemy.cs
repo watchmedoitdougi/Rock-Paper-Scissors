@@ -1,8 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EnemyBattle : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public Sprite defaultSprite;
     public Sprite rockSprite;
@@ -19,50 +18,55 @@ public class EnemyBattle : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = defaultSprite;
 
+        // Automatically detect if this scene is the 2-player version
         string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName == "Player2Battle")
-        {
-            isTwoPlayerMode = true;
-        }
+        isTwoPlayerMode = sceneName.Contains("Player2Battle");
     }
 
     void Update()
     {
-        // Only process input if this is the 2-player battle
-        if (!isTwoPlayerMode) return;
+        if (isTwoPlayerMode)
+        {
+            // Player 2 uses arrow keys
+            if (player2Choice != "None") return;
 
-        // Only take input once (BattleManager will check this value)
-        if (player2Choice != "None") return;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+                player2Choice = "Rock";
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+                player2Choice = "Paper";
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                player2Choice = "Scissors";
+        }
+        else
+        {
+            // Single player mode: enemy picks randomly after countdown
+            if (player2Choice == "None")
+            {
+                int random = Random.Range(1, 4); // 1-3
+                switch (random)
+                {
+                    case 1: player2Choice = "Rock"; break;
+                    case 2: player2Choice = "Paper"; break;
+                    case 3: player2Choice = "Scissors"; break;
+                }
+            }
+        }
+    }
 
-        // Player 2 uses arrow keys
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-            player2Choice = "Rock";
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-            player2Choice = "Paper";
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-            player2Choice = "Scissors";
-
-        public void ShowChoice(string choice)
+    public void ShowChoice(string choice)
     {
         switch (choice)
         {
-            case "Rock":
-                sr.sprite = rockSprite;
-                break;
-            case "Paper":
-                sr.sprite = paperSprite;
-                break;
-            case "Scissors":
-                sr.sprite = scissorsSprite;
-                break;
-            default:
-                sr.sprite = defaultSprite;
-                break;
+            case "Rock": sr.sprite = rockSprite; break;
+            case "Paper": sr.sprite = paperSprite; break;
+            case "Scissors": sr.sprite = scissorsSprite; break;
+            default: sr.sprite = defaultSprite; break;
         }
     }
 
     public void ResetSprite()
     {
         sr.sprite = defaultSprite;
+        player2Choice = "None"; // Reset between rounds
     }
 }

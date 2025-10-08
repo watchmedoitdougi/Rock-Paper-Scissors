@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
     public Button mainMenuButton;
 
     public PlayerBattle player;
-    public EnemyBattle enemy;
+    public Enemy enemy;
 
     private enum Choice { None, Rock, Paper, Scissors }
     private Choice playerChoice = Choice.None;

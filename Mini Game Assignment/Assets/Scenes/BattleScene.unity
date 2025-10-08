@@ -422,6 +422,7 @@ MonoBehaviour:
   rockSprite: {fileID: 3452003437791708593, guid: fe0022c4ecdcd8a45a5c3cd2c4c9aa36, type: 3}
   paperSprite: {fileID: 2045492094208909694, guid: e2e96c2d96fea17419451bb2f398a09e, type: 3}
   scissorsSprite: {fileID: 6689946350199266671, guid: 5fb20925486580045bd0fb085ec6fa28, type: 3}
+  player2Choice: None
 --- !u!212 &287636807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1853,6 +1854,7 @@ MonoBehaviour:
   rockSprite: {fileID: 3452003437791708593, guid: fe0022c4ecdcd8a45a5c3cd2c4c9aa36, type: 3}
   paperSprite: {fileID: 2045492094208909694, guid: e2e96c2d96fea17419451bb2f398a09e, type: 3}
   scissorsSprite: {fileID: 6689946350199266671, guid: 5fb20925486580045bd0fb085ec6fa28, type: 3}
+  player1Choice: None
 --- !u!212 &1643088034
 SpriteRenderer:
   m_ObjectHideFlags: 0

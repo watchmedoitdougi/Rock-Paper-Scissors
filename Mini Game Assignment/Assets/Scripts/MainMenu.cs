@@ -17,6 +17,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void Start2player()
     {
-        SceneManager.LoadScene("2PlayerScene");
+        SceneManager.LoadScene("Player2Battle");
     }
 }
