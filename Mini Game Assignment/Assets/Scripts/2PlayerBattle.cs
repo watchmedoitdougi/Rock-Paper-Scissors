@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Battle2Player : MonoBehaviour
 {
-    public TMP_Text rockText;
-    public TMP_Text paperText;
-    public TMP_Text scissorsText;
-    public TMP_Text shootText;
+    public SpriteRenderer rockimage;
+    public SpriteRenderer paperimage;
+    public SpriteRenderer scissorsimage;
+    public SpriteRenderer shootimage;
     public TMP_Text resultText;
 
     public Button bestOf3Button;
@@ -41,28 +41,30 @@ public class Battle2Player : MonoBehaviour
         player2.player2Choice = "None";
         resultText.text = "";
 
-        // Hide all countdown texts
-        rockText.gameObject.SetActive(false);
-        paperText.gameObject.SetActive(false);
-        scissorsText.gameObject.SetActive(false);
-        shootText.gameObject.SetActive(false);
+        rockimage.gameObject.SetActive(false);
+        paperimage.gameObject.SetActive(false);
+        scissorsimage.gameObject.SetActive(false);
+        shootimage.gameObject.SetActive(false);
 
-        // Countdown sequence
-        rockText.gameObject.SetActive(true);
+        // Show Rock
+        rockimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
-        rockText.gameObject.SetActive(false);
+        rockimage.gameObject.SetActive(false);
 
-        paperText.gameObject.SetActive(true);
+        // Show Paper
+        paperimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
-        paperText.gameObject.SetActive(false);
+        paperimage.gameObject.SetActive(false);
 
-        scissorsText.gameObject.SetActive(true);
+        // Show Scissors
+        scissorsimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
-        scissorsText.gameObject.SetActive(false);
+        scissorsimage.gameObject.SetActive(false);
 
-        shootText.gameObject.SetActive(true);
+        // Show Shoot!
+        shootimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
-        shootText.gameObject.SetActive(false);
+        shootimage.gameObject.SetActive(false);
 
         // Give both players 1 second to choose
         yield return new WaitForSeconds(1);
