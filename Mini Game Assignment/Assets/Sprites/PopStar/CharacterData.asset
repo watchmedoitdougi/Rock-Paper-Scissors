@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c16b2b77f7b7ec4f9ac940591880bda, type: 3}
+  m_Name: CharacterData
+  m_EditorClassIdentifier: 
+  CharacterName: Pop Star
+  idleSprite: {fileID: -3384185447597189575, guid: 819c491df5d4df94e9c022ec291e8fc4, type: 3}
+  rockSprite: {fileID: 0}
+  paperSprite: {fileID: 0}
+  scissorsSprite: {fileID: 0}
+  loseRockSprite: {fileID: 0}
+  losePaperSprite: {fileID: 0}
+  loseScissorsSprite: {fileID: 0}

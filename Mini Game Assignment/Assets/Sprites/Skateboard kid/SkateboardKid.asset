@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c16b2b77f7b7ec4f9ac940591880bda, type: 3}
+  m_Name: SkateboardKid
+  m_EditorClassIdentifier: 
+  CharacterName: Skateboard Kid
+  idleSprite: {fileID: -5543692333027054466, guid: d6c5ee5f1bdf27a43901c79f18acd932, type: 3}
+  rockSprite: {fileID: 0}
+  paperSprite: {fileID: 0}
+  scissorsSprite: {fileID: 0}
+  loseRockSprite: {fileID: 0}
+  losePaperSprite: {fileID: 2983176672526510472, guid: ba882aa5692675240acdda8bb2e8d41a, type: 3}
+  loseScissorsSprite: {fileID: -1171882843668213869, guid: 1810d872ed6a1fd4c976d65db5275e20, type: 3}
