@@ -1,0 +1,1405 @@
+fileFormatVersion: 2
+guid: 4b7b9e156f2bbf74796d5995c1211bd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6756352413241994222
+    second: Raccoon_scissors_0
+  - first:
+      213: -3470994492008953294
+    second: Raccoon_scissors_1
+  - first:
+      213: 8231015917858834861
+    second: Raccoon_scissors_2
+  - first:
+      213: -9218509923995478044
+    second: Raccoon_scissors_3
+  - first:
+      213: 4196074332783134943
+    second: Raccoon_scissors_4
+  - first:
+      213: 7247380938886854269
+    second: Raccoon_scissors_5
+  - first:
+      213: 7478712398710119723
+    second: Raccoon_scissors_6
+  - first:
+      213: -8326023937441011266
+    second: Raccoon_scissors_7
+  - first:
+      213: -1255770521287580716
+    second: Raccoon_scissors_8
+  - first:
+      213: -5352160683247030723
+    second: Raccoon_scissors_9
+  - first:
+      213: 1994278246771886812
+    second: Raccoon_scissors_10
+  - first:
+      213: -1359499515486622168
+    second: Raccoon_scissors_11
+  - first:
+      213: 1338766185241912378
+    second: Raccoon_scissors_12
+  - first:
+      213: 8749678161720783010
+    second: Raccoon_scissors_13
+  - first:
+      213: -2928386072066101408
+    second: Raccoon_scissors_14
+  - first:
+      213: -7932050599618752566
+    second: Raccoon_scissors_15
+  - first:
+      213: 4452411053958442445
+    second: Raccoon_scissors_16
+  - first:
+      213: -8019002903527707851
+    second: Raccoon_scissors_17
+  - first:
+      213: 2254687099739311142
+    second: Raccoon_scissors_18
+  - first:
+      213: 1035786314655777990
+    second: Raccoon_scissors_19
+  - first:
+      213: -6394715985814505669
+    second: Raccoon_scissors_20
+  - first:
+      213: -3220448675108453142
+    second: Raccoon_scissors_21
+  - first:
+      213: 795183927953128168
+    second: Raccoon_scissors_22
+  - first:
+      213: -3352822970780752689
+    second: Raccoon_scissors_23
+  - first:
+      213: 2218430596334040443
+    second: Raccoon_scissors_24
+  - first:
+      213: -3807902686175847477
+    second: Raccoon_scissors_25
+  - first:
+      213: -3433806617163760100
+    second: Raccoon_scissors_26
+  - first:
+      213: -2350361611920344562
+    second: Raccoon_scissors_27
+  - first:
+      213: -2056130337511143228
+    second: Raccoon_scissors_28
+  - first:
+      213: -6616147159396749044
+    second: Raccoon_scissors_29
+  - first:
+      213: 6318194994344648608
+    second: Raccoon_scissors_30
+  - first:
+      213: 7267377546316302849
+    second: Raccoon_scissors_31
+  - first:
+      213: -1440442877594907755
+    second: Raccoon_scissors_32
+  - first:
+      213: 1336107105260759543
+    second: Raccoon_scissors_33
+  - first:
+      213: 471274852557857446
+    second: Raccoon_scissors_34
+  - first:
+      213: -7509616012456792413
+    second: Raccoon_scissors_35
+  - first:
+      213: 9165574034328113454
+    second: Raccoon_scissors_36
+  - first:
+      213: 2687095283039004887
+    second: Raccoon_scissors_37
+  - first:
+      213: -6563356539866733027
+    second: Raccoon_scissors_38
+  - first:
+      213: -3013965798310556017
+    second: Raccoon_scissors_39
+  - first:
+      213: -1342420480304419014
+    second: Raccoon_scissors_40
+  - first:
+      213: 7208549285616911704
+    second: Raccoon_scissors_41
+  - first:
+      213: -2425482917390249728
+    second: Raccoon_scissors_42
+  - first:
+      213: -3202941662662065240
+    second: Raccoon_scissors_43
+  - first:
+      213: 674315453878877075
+    second: Raccoon_scissors_44
+  - first:
+      213: 5558360852022944678
+    second: Raccoon_scissors_45
+  - first:
+      213: 4737849214510489166
+    second: Raccoon_scissors_46
+  - first:
+      213: -66111939261472991
+    second: Raccoon_scissors_47
+  - first:
+      213: -2587856191998867638
+    second: Raccoon_scissors_48
+  - first:
+      213: -2582696662789987930
+    second: Raccoon_scissors_49
+  - first:
+      213: 4617671318066597340
+    second: Raccoon_scissors_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Raccoon_scissors_0
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 1017
+        width: 41
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeb64a029b263cd50800000000000000
+      internalID: 6756352413241994222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_1
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 800
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23a087e46ec84dfc0800000000000000
+      internalID: -3470994492008953294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_2
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 791
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9cf841e517a3270800000000000000
+      internalID: 8231015917858834861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_3
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 9
+        width: 901
+        height: 922
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e716ddd016411080800000000000000
+      internalID: -9218509923995478044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 538
+        width: 91
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd84ca8bf537b3a30800000000000000
+      internalID: 4196074332783134943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_5
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 48
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d76b94ec09ed39460800000000000000
+      internalID: 7247380938886854269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_6
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 51
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d1d6e7d49b9c760800000000000000
+      internalID: 7478712398710119723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_7
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 38
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9ed619755047c80800000000000000
+      internalID: -8326023937441011266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_8
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 57
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d32f3f3d5b929ee0800000000000000
+      internalID: -1255770521287580716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_9
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 53
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3eaf3e273e49b5b0800000000000000
+      internalID: -5352160683247030723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_10
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 54
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda8022df791dab10800000000000000
+      internalID: 1994278246771886812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_11
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 29
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82eaa13c466122de0800000000000000
+      internalID: -1359499515486622168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_12
+      rect:
+        serializedVersion: 2
+        x: 1485
+        y: 40
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3426ac90c0449210800000000000000
+      internalID: 1338766185241912378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_13
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 37
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a03c582ee91d6970800000000000000
+      internalID: 8749678161720783010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_14
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 26
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f6c49f1684c57d0800000000000000
+      internalID: -2928386072066101408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_15
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 40
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfcc456102bbe190800000000000000
+      internalID: -7932050599618752566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_16
+      rect:
+        serializedVersion: 2
+        x: 1503
+        y: 30
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd273183442acd30800000000000000
+      internalID: 4452411053958442445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_17
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 35
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ba7628857c6b090800000000000000
+      internalID: -8019002903527707851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_18
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 36
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c0e9ba8f14a4f10800000000000000
+      internalID: 2254687099739311142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_19
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 25
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c4c4445a2adf5e00800000000000000
+      internalID: 1035786314655777990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_20
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 33
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37b30a01b76147a0800000000000000
+      internalID: -6394715985814505669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_21
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 22
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae488ce1efaae43d0800000000000000
+      internalID: -3220448675108453142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_22
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 22
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eafeb4c19f090b00800000000000000
+      internalID: 795183927953128168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_23
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 18
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4e7d7a5416871d0800000000000000
+      internalID: -3352822970780752689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_24
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 20
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b753955afd279ce10800000000000000
+      internalID: 2218430596334040443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_25
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 16
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb9b3b9eac972bc0800000000000000
+      internalID: -3807902686175847477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_26
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 21
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e7194231ba850d0800000000000000
+      internalID: -3433806617163760100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_27
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 23
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0af5c31196d16fd0800000000000000
+      internalID: -2350361611920344562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_28
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 23
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c88eb41a582773e0800000000000000
+      internalID: -2056130337511143228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_29
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 11
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01727e5639be24a0800000000000000
+      internalID: -6616147159396749044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_30
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 11
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af50934fdcbea750800000000000000
+      internalID: 6318194994344648608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_31
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 18
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a45d8cf59ead460800000000000000
+      internalID: 7267377546316302849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_32
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 0
+        width: 31
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59bc6b9a5d4820ce0800000000000000
+      internalID: -1440442877594907755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_33
+      rect:
+        serializedVersion: 2
+        x: 1491
+        y: 25
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f961fe455eca8210800000000000000
+      internalID: 1336107105260759543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_34
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 15
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a229424bfd4a8600800000000000000
+      internalID: 471274852557857446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_35
+      rect:
+        serializedVersion: 2
+        x: 1507
+        y: 19
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae6de9360c78c790800000000000000
+      internalID: -7509616012456792413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_36
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 10
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21dbaed509a23f70800000000000000
+      internalID: 9165574034328113454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_37
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 20
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8ea2f4cea7a4520800000000000000
+      internalID: 2687095283039004887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_38
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 16
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16a10b40064ae4a0800000000000000
+      internalID: -6563356539866733027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_39
+      rect:
+        serializedVersion: 2
+        x: 1425
+        y: 0
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ec58a331e3c26d0800000000000000
+      internalID: -3013965798310556017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_40
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 9
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3fee348fa3ce5de0800000000000000
+      internalID: -1342420480304419014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_41
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855871bf169e90460800000000000000
+      internalID: 7208549285616911704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_42
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 6
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0011d2c2324f65ed0800000000000000
+      internalID: -2425482917390249728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_43
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 0
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a38ab8178ddc83d0800000000000000
+      internalID: -3202941662662065240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_44
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 0
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39bb1072556ab5900800000000000000
+      internalID: 674315453878877075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_45
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 5
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3e346deb3432d40800000000000000
+      internalID: 5558360852022944678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_46
+      rect:
+        serializedVersion: 2
+        x: 1497
+        y: 5
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ed24622c830c140800000000000000
+      internalID: 4737849214510489166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_47
+      rect:
+        serializedVersion: 2
+        x: 1505
+        y: 0
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12f58e0aa8f151ff0800000000000000
+      internalID: -66111939261472991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_48
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 4
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47cc122186161cd0800000000000000
+      internalID: -2587856191998867638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_49
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 0
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1e0d3a11b682cd0800000000000000
+      internalID: -2582696662789987930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scissors_50
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 0
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd8eda2993451040800000000000000
+      internalID: 4617671318066597340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
