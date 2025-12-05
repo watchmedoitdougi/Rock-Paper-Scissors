@@ -2,267 +2,135 @@
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-using UnityEngine.SceneManagement;
 
-
-public class BattleManager : MonoBehaviour
+public class Battle : MonoBehaviour
 {
+    [Header("UI / Countdown")]
     public SpriteRenderer rockimage;
     public SpriteRenderer paperimage;
     public SpriteRenderer scissorsimage;
     public SpriteRenderer shootimage;
     public TMP_Text resultText;
 
-    public TMP_Text goldText;
-
-    public Button bestOf3Button;
-    public Button mainMenuButton;
-
+    [Header("Characters")]
     public PlayerBattle player;
     public Enemy enemy;
 
-    private enum Choice { None, Rock, Paper, Scissors }
-    private Choice playerChoice = Choice.None;
-    private Choice enemyChoice = Choice.None;
-
-    private int roundCount = 0;
-    private int playerWins = 0;
-    private int enemyWins = 0;
-
-    private Vector3 dragStart;
-    private float holdTime;
+    [Header("Gold")]
+    public TMP_Text goldText;
+    public int goldOnLose = 1;
+    public int goldOnWin = 2;
 
     private bool inputLocked = false;
 
     void Start()
     {
-        bestOf3Button.gameObject.SetActive(false);
-        mainMenuButton.gameObject.SetActive(false);
+        UpdateGoldText();
         StartCoroutine(StartBattleRound());
     }
 
     IEnumerator StartBattleRound()
     {
         inputLocked = false;
-        playerChoice = Choice.None;
-        enemyChoice = Choice.None;
         resultText.text = "";
 
-        // Reset sprites to default at the start
         player.ResetSprite();
         enemy.ResetSprite();
 
-        
-        rockimage.gameObject.SetActive(false);
-        paperimage.gameObject.SetActive(false);
-        scissorsimage.gameObject.SetActive(false);
-        shootimage.gameObject.SetActive(false);
+        yield return Countdown();
 
-        // Show Rock
-        rockimage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        rockimage.gameObject.SetActive(false);
-
-        // Show Paper
-        paperimage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        paperimage.gameObject.SetActive(false);
-
-        // Show Scissors
-        scissorsimage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        scissorsimage.gameObject.SetActive(false);
-
-        // Show Shoot!
-        shootimage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1);
-        shootimage.gameObject.SetActive(false);
-
-        // Give player 1 second to input
-        yield return new WaitForSeconds(1);
-
-        // Lock input
+        // Lock input so players can't change choice while we reveal
         inputLocked = true;
 
-        // Enemy always picks after countdown
-        enemyChoice = (Choice)Random.Range(1, 4);
+        // Pull final choices (they should have been set by input in their own scripts)
+        Choice playerChoice = player.choice;
+        Choice enemyChoice = enemy.choice;
 
-        // Reveal both choices visually
-        player.ShowChoice(playerChoice.ToString());
-        enemy.ShowChoice(enemyChoice.ToString());
+        // If enemy still has none (single-player), randomize it
+        if (enemyChoice == Choice.None)
+            enemyChoice = (Choice)Random.Range(1, 4);
 
-        // If player didn't pick
+        // Apply chosen sprites (calls on characters)
+        player.SetChoice(playerChoice);
+        enemy.SetChoice(enemyChoice);
+
+        // Empty choice = auto loss
         if (playerChoice == Choice.None)
         {
-            resultText.text = "Choose next time!";
-            enemyWins++;
-            AddGold(1); // losing reward
+            resultText.text = "No Choice — You Lose!";
+            AddGold(goldOnLose);
         }
         else
         {
-            EvaluateWinner();
+            EvaluateWinner(playerChoice, enemyChoice);
         }
 
         UpdateGoldText();
 
-        roundCount++;
+        yield return new WaitForSeconds(1.5f);
 
-        // After each round, ask if they want Best of 3 or return
-        bestOf3Button.gameObject.SetActive(true);
-        mainMenuButton.gameObject.SetActive(true);
-    }
-
-    void Update()
-    {
-        if (inputLocked) return;
-
-        // Start tracking
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragStart = Input.mousePosition;
-            holdTime = 0f;
-        }
-
-        // While holding, count time
-        if (Input.GetMouseButton(0))
-        {
-            holdTime += Time.deltaTime;
-        }
-
-        // Decide only when released
-        if (Input.GetMouseButtonUp(0))
-        {
-            float dragDistance = Input.mousePosition.x - dragStart.x;
-
-            if (Mathf.Abs(dragDistance) > 50f) // swipe threshold
-            {
-                playerChoice = Choice.Scissors;
-                resultText.text = "You chose Scissors!";
-            }
-            else if (holdTime > 0.3f) // held long enough
-            {
-                playerChoice = Choice.Paper;
-                resultText.text = "You chose Paper!";
-            }
-            else // quick tap
-            {
-                playerChoice = Choice.Rock;
-                resultText.text = "You chose Rock!";
-            }
-        }
-
-
-    }
-
-    void EvaluateWinner()
-    {
-        if (playerChoice == enemyChoice)
-        {
-            // Draw → handled in EndBattleRound
-            EndBattleRound("Draw! Again!");
-            return;
-        }
-
-        // Player wins
-        if ((playerChoice == Choice.Rock && enemyChoice == Choice.Scissors) ||
-            (playerChoice == Choice.Paper && enemyChoice == Choice.Rock) ||
-            (playerChoice == Choice.Scissors && enemyChoice == Choice.Paper))
-        {
-            EndBattleRound("You Win!");
-        }
-        else
-        {
-            EndBattleRound("You Lose!");
-        }
-
-        roundCount++;
-    }
-
-    void EndBattleRound(string result)
-    {
-        resultText.text = result;
-
-        if (result.Contains("Win"))
-        {
-            AddGold(2);
-            UpdateGoldText();
-
-            // Won → only main menu
-            mainMenuButton.gameObject.SetActive(true);
-            bestOf3Button.gameObject.SetActive(false);
-        }
-        else if (result.Contains("Lose"))
-        {
-            // Lost → give redemption chance
-            mainMenuButton.gameObject.SetActive(true);
-            bestOf3Button.gameObject.SetActive(true);
-        }
-        else if (result.Contains("Draw"))
-        {
-            // Wait a moment before restarting the round
-            StartCoroutine(RestartAfterDelay());
-        }
-    }
-
-    IEnumerator RestartAfterDelay()
-    {
-        yield return new WaitForSeconds(1.5f); // delay to show result
+        // Allow next round
         StartCoroutine(StartBattleRound());
     }
 
-    public void PlayBestOf3()
+    IEnumerator Countdown()
     {
-        bestOf3Button.gameObject.SetActive(false);
-        mainMenuButton.gameObject.SetActive(false);
+        rockimage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        rockimage.gameObject.SetActive(false);
 
-        if (roundCount < 3)
+        paperimage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        paperimage.gameObject.SetActive(false);
+
+        scissorsimage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scissorsimage.gameObject.SetActive(false);
+
+        shootimage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        shootimage.gameObject.SetActive(false);
+    }
+
+    void EvaluateWinner(Choice playerChoice, Choice enemyChoice)
+    {
+        if (playerChoice == enemyChoice)
         {
-            StartCoroutine(StartBattleRound());
+            resultText.text = "Draw!";
+            return;
+        }
+
+        bool playerWins =
+            (playerChoice == Choice.Rock && enemyChoice == Choice.Scissors) ||
+            (playerChoice == Choice.Paper && enemyChoice == Choice.Rock) ||
+            (playerChoice == Choice.Scissors && enemyChoice == Choice.Paper);
+
+        if (playerWins)
+        {
+            resultText.text = "You Win!";
+            AddGold(goldOnWin);
+            // enemy shows the losing sprite for *the choice that beat them* (playerChoice)
+            enemy.ShowLosingSprite(playerChoice);
         }
         else
         {
-            if (playerWins > enemyWins)
-            {
-                resultText.text = "Nice! +5 Bonus !";
-                AddGold(5);
-            }
-            else
-            {
-                resultText.text = "Loser! No Bonus";
-            }
-
-            UpdateGoldText();
-
-            // After redemption, only main menu shows
-            mainMenuButton.gameObject.SetActive(true);
-
-            // Reset counters
-            roundCount = 0;
-            playerWins = 0;
-            enemyWins = 0;
+            resultText.text = "You Lose!";
+            AddGold(goldOnLose);
+            // player shows losing sprite for the choice that beat them (enemyChoice)
+            player.ShowLosingSprite(enemyChoice);
         }
-    }
-
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
     }
 
     void AddGold(int amount)
     {
-        int currentGold = PlayerPrefs.GetInt("Gold", 0); // load existing or 0
-        currentGold += amount;
-        PlayerPrefs.SetInt("Gold", currentGold);
+        int current = PlayerPrefs.GetInt("Gold", 0);
+        PlayerPrefs.SetInt("Gold", current + amount);
         PlayerPrefs.Save();
-        UpdateGoldText();
     }
 
     void UpdateGoldText()
     {
-        int currentGold = PlayerPrefs.GetInt("Gold", 0);
         if (goldText != null)
-        {
-            goldText.text = "Gold: " + currentGold;
-        }
+            goldText.text = "Gold: " + PlayerPrefs.GetInt("Gold", 0);
     }
 }

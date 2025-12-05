@@ -1,64 +1,113 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
 
 public class PlayerBattle : MonoBehaviour
 {
+    [Header("Sprites (or assign a CharacterData SO)")]
+    public CharacterData data; // optional, can be null
     public Sprite defaultSprite;
     public Sprite rockSprite;
     public Sprite paperSprite;
     public Sprite scissorsSprite;
+    public Sprite loseToRockSprite;
+    public Sprite loseToPaperSprite;
+    public Sprite loseToScissorsSprite;
+
+    [HideInInspector] public Choice choice = Choice.None;
 
     private SpriteRenderer sr;
-    private bool isTwoPlayerMode = false;
 
-    [HideInInspector] public string player1Choice = "None";
+    // Input helpers
+    private float mouseDownTime;
+    private Vector2 mouseDownPos;
+    private bool inputEnabled = true; // Battle controls rounds; disable if needed externally
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = defaultSprite;
-
-        string sceneName = SceneManager.GetActiveScene().name;
-        isTwoPlayerMode = sceneName.Contains("Player2Battle");
+        if (sr == null) Debug.LogError("PlayerBattle requires a SpriteRenderer on the same GameObject.");
+        sr.sprite = GetDefaultSprite();
     }
 
     void Update()
     {
-        if (!isTwoPlayerMode) return; // only 2-player mode uses keyboard
+        if (!inputEnabled) return; // Battle can disable if necessary
 
-        if (player1Choice != "None") return;
+        // Click/hold/drag detection
+        if (Input.GetMouseButtonDown(0))
+        {
+            mouseDownTime = Time.time;
+            mouseDownPos = Input.mousePosition;
+        }
 
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-            player1Choice = "Rock";
-        else if (Input.GetKeyDown(KeyCode.W))
-            player1Choice = "Paper";
-        else if (Input.GetKeyDown(KeyCode.S))
-            player1Choice = "Scissors";
+        if (Input.GetMouseButtonUp(0))
+        {
+            float heldTime = Time.time - mouseDownTime;
+            float dragDistance = Vector2.Distance(Input.mousePosition, mouseDownPos);
+
+            // threshold values — tweak if needed
+            if (dragDistance > 50f)
+            {
+                SetChoice(Choice.Scissors);
+            }
+            else if (heldTime > 0.35f)
+            {
+                SetChoice(Choice.Paper);
+            }
+            else
+            {
+                SetChoice(Choice.Rock);
+            }
+        }
+
+        // Optional: keyboard fallback (WASD)
+        if (Input.GetKeyDown(KeyCode.W)) SetChoice(Choice.Rock);
+        if (Input.GetKeyDown(KeyCode.A)) SetChoice(Choice.Paper);
+        if (Input.GetKeyDown(KeyCode.S)) SetChoice(Choice.Scissors);
     }
 
-    public void ShowChoice(string choice)
+    // Helper getters that fall back to direct sprites if `data` is null
+    Sprite GetDefaultSprite() => data != null ? data.defaultSprite : defaultSprite;
+    Sprite GetRock() => data != null ? data.rockSprite : rockSprite;
+    Sprite GetPaper() => data != null ? data.paperSprite : paperSprite;
+    Sprite GetScissors() => data != null ? data.scissorsSprite : scissorsSprite;
+    Sprite GetLoseToRock() => data != null ? data.loseToRockSprite : loseToRockSprite;
+    Sprite GetLoseToPaper() => data != null ? data.loseToPaperSprite : loseToPaperSprite;
+    Sprite GetLoseToScissors() => data != null ? data.loseToScissorsSprite : loseToScissorsSprite;
+
+    // Called by Battle to set final visual or by input
+    public void SetChoice(Choice newChoice)
     {
+        choice = newChoice;
         switch (choice)
         {
-            case "Rock":
-                sr.sprite = rockSprite;
-                break;
-            case "Paper":
-                sr.sprite = paperSprite;
-                break;
-            case "Scissors":
-                sr.sprite = scissorsSprite;
-                break;
-            default:
-                sr.sprite = defaultSprite;
-                break;
+            case Choice.Rock: sr.sprite = GetRock(); break;
+            case Choice.Paper: sr.sprite = GetPaper(); break;
+            case Choice.Scissors: sr.sprite = GetScissors(); break;
+            default: sr.sprite = GetDefaultSprite(); break;
+        }
+    }
+
+    // Shows the "I lost to X" sprite — argument is the opponent's winning choice
+    public void ShowLosingSprite(Choice opponentChoice)
+    {
+        switch (opponentChoice)
+        {
+            case Choice.Rock: sr.sprite = GetLoseToRock(); break;
+            case Choice.Paper: sr.sprite = GetLoseToPaper(); break;
+            case Choice.Scissors: sr.sprite = GetLoseToScissors(); break;
+            default: sr.sprite = GetDefaultSprite(); break;
         }
     }
 
     public void ResetSprite()
     {
-        sr.sprite = defaultSprite;
+        choice = Choice.None;
+        sr.sprite = GetDefaultSprite();
+    }
+
+    // Optional: called by Battle to temporarily disable input while round resolves
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
     }
 }

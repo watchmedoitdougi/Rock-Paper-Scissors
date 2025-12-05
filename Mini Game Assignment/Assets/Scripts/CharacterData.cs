@@ -1,15 +1,14 @@
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "CharacterData", menuName = "RPS/Character")]
+[CreateAssetMenu(fileName = "CharacterData", menuName = "RPS/CharacterData")]
 public class CharacterData : ScriptableObject
 {
-    public string CharacterName;
-    public Sprite idleSprite;
+    public string characterName;
+    public Sprite defaultSprite;
     public Sprite rockSprite;
     public Sprite paperSprite;
     public Sprite scissorsSprite;
 
-    public Sprite loseRockSprite;
-    public Sprite losePaperSprite;
-    public Sprite loseScissorsSprite;
+    public Sprite loseToRockSprite;
+    public Sprite loseToPaperSprite;
+    public Sprite loseToScissorsSprite;
 }

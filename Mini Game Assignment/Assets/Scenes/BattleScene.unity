@@ -368,11 +368,11 @@ MonoBehaviour:
   scissorsimage: {fileID: 2099058077}
   shootimage: {fileID: 1750643307}
   resultText: {fileID: 1576123915}
-  goldText: {fileID: 813935105}
-  bestOf3Button: {fileID: 1741130729}
-  mainMenuButton: {fileID: 1701119157}
   player: {fileID: 1643088033}
   enemy: {fileID: 287636806}
+  goldText: {fileID: 813935105}
+  goldOnLose: 1
+  goldOnWin: 2
 --- !u!4 &246095664
 Transform:
   m_ObjectHideFlags: 0
@@ -418,11 +418,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8443a5144c38b49adead13e267766e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 8957324059118975939, guid: 4544a3d9b6fabce4ebbd3b9fe17a20dc, type: 3}
-  rockSprite: {fileID: 3452003437791708593, guid: fe0022c4ecdcd8a45a5c3cd2c4c9aa36, type: 3}
-  paperSprite: {fileID: 2045492094208909694, guid: e2e96c2d96fea17419451bb2f398a09e, type: 3}
-  scissorsSprite: {fileID: 6689946350199266671, guid: 5fb20925486580045bd0fb085ec6fa28, type: 3}
-  player2Choice: None
+  data: {fileID: 11400000, guid: 54515021b5a7ea5469001069f86606df, type: 2}
+  defaultSprite: {fileID: 802712436491807689, guid: c927901b5fec98743b70bb30e9c679e6, type: 3}
+  rockSprite: {fileID: 8478291096960639264, guid: 9a508f16a2024974e900e0476f9807fb, type: 3}
+  paperSprite: {fileID: -1111525828774184762, guid: b0bac2e0bc69da14bbca73119049d7aa, type: 3}
+  scissorsSprite: {fileID: 6756352413241994222, guid: 4b7b9e156f2bbf74796d5995c1211bd6, type: 3}
+  loseToRockSprite: {fileID: -896105580961327914, guid: 0fc8a91b9d774744ebaf75de4e353cb7, type: 3}
+  loseToPaperSprite: {fileID: 4687068998157649237, guid: 4ab0689e259b19b4c864624c7db69e97, type: 3}
+  loseToScissorsSprite: {fileID: 2933134397732369013, guid: 0ad81a395a5f455409f4d8c258c5caf6, type: 3}
+  choice: 0
 --- !u!212 &287636807
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -884,8 +888,8 @@ Transform:
   m_GameObject: {fileID: 439398928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1108,7 +1112,7 @@ Transform:
   m_GameObject: {fileID: 611572275}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.14, y: 0.1, z: -10}
   m_LocalScale: {x: 1.18, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1654,11 +1658,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d0f3dc5b6274ba418bb99a966172711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSprite: {fileID: 8957324059118975939, guid: 4544a3d9b6fabce4ebbd3b9fe17a20dc, type: 3}
-  rockSprite: {fileID: 3452003437791708593, guid: fe0022c4ecdcd8a45a5c3cd2c4c9aa36, type: 3}
-  paperSprite: {fileID: 2045492094208909694, guid: e2e96c2d96fea17419451bb2f398a09e, type: 3}
-  scissorsSprite: {fileID: 6689946350199266671, guid: 5fb20925486580045bd0fb085ec6fa28, type: 3}
-  player1Choice: None
+  data: {fileID: 11400000, guid: d90c73d7799b1634389b6f722076c7df, type: 2}
+  defaultSprite: {fileID: 2644597023220860706, guid: 6d2ed609d2df1364abb07ea75e6460cd, type: 3}
+  rockSprite: {fileID: -6533947097388657621, guid: 43018eec0cf6809459956fb33530cce7, type: 3}
+  paperSprite: {fileID: -6836508787781648347, guid: ca597249bf1c08941b4449b1355d2216, type: 3}
+  scissorsSprite: {fileID: -5987200226849875633, guid: 9326ee7be0767fe479444ac01511b64c, type: 3}
+  loseToRockSprite: {fileID: 2644597023220860706, guid: 33c4cde41005c7f4dac06286981cd918, type: 3}
+  loseToPaperSprite: {fileID: 8197032916013277071, guid: 1a8665909a08fef4f9e425751ddc0702, type: 3}
+  loseToScissorsSprite: {fileID: 5064992197932465336, guid: 467f1383234be864cae81f127e8f1083, type: 3}
+  choice: 0
 --- !u!212 &1643088034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2163,8 +2171,8 @@ Transform:
   m_GameObject: {fileID: 2075669751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.02, y: -0.02, z: -10}
+  m_LocalScale: {x: 1.1472895, y: 0.973268, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

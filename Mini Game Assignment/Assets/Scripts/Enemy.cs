@@ -3,70 +3,93 @@ using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Sprites (or assign CharacterData)")]
+    public CharacterData data;
     public Sprite defaultSprite;
     public Sprite rockSprite;
     public Sprite paperSprite;
     public Sprite scissorsSprite;
+    public Sprite loseToRockSprite;
+    public Sprite loseToPaperSprite;
+    public Sprite loseToScissorsSprite;
+
+    [HideInInspector] public Choice choice = Choice.None;
 
     private SpriteRenderer sr;
-
-    [HideInInspector] public string player2Choice = "None";
-    private bool isTwoPlayerMode = false;
+    private bool isTwoPlayer = false;
+    private bool inputEnabled = true;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = defaultSprite;
+        if (sr == null) Debug.LogError("Enemy requires a SpriteRenderer.");
+        sr.sprite = GetDefaultSprite();
 
-        // Automatically detect if this scene is the 2-player version
-        string sceneName = SceneManager.GetActiveScene().name;
-        isTwoPlayerMode = sceneName.Contains("Player2Battle");
+        string scene = SceneManager.GetActiveScene().name.ToLower();
+        isTwoPlayer = scene.Contains("player2") || scene.Contains("2player");
     }
 
     void Update()
     {
-        if (isTwoPlayerMode)
-        {
-            // Player 2 uses arrow keys
-            if (player2Choice != "None") return;
+        if (!inputEnabled) return;
+        
+        if (isTwoPlayer)
+        { 
+            if (choice != Choice.None) return;
 
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
-                player2Choice = "Rock";
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-                player2Choice = "Paper";
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-                player2Choice = "Scissors";
+            // Player 2 controls
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) choice = Choice.Rock;
+            if (Input.GetKeyDown(KeyCode.RightArrow)) choice = Choice.Rock;
+            if (Input.GetKeyDown(KeyCode.UpArrow)) choice = Choice.Paper;
+            if (Input.GetKeyDown(KeyCode.DownArrow)) choice = Choice.Scissors;
         }
         else
         {
-            // Single player mode: enemy picks randomly after countdown
-            if (player2Choice == "None")
-            {
-                int random = Random.Range(1, 4); // 1-3
-                switch (random)
-                {
-                    case 1: player2Choice = "Rock"; break;
-                    case 2: player2Choice = "Paper"; break;
-                    case 3: player2Choice = "Scissors"; break;
-                }
-            }
+            // AI picks randomly when the round locks in
+            // (Battle.cs will randomize if still None)
         }
     }
 
-    public void ShowChoice(string choice)
+    Sprite GetDefaultSprite() => data != null ? data.defaultSprite : defaultSprite;
+    Sprite GetRock() => data != null ? data.rockSprite : rockSprite;
+    Sprite GetPaper() => data != null ? data.paperSprite : paperSprite;
+    Sprite GetScissors() => data != null ? data.scissorsSprite : scissorsSprite;
+    Sprite GetLoseToRock() => data != null ? data.loseToRockSprite : loseToRockSprite;
+    Sprite GetLoseToPaper() => data != null ? data.loseToPaperSprite : loseToPaperSprite;
+    Sprite GetLoseToScissors() => data != null ? data.loseToScissorsSprite : loseToScissorsSprite;
+
+    public void SetChoice(Choice newChoice)
     {
-        switch (choice)
+        choice = newChoice;
+        switch (newChoice)
         {
-            case "Rock": sr.sprite = rockSprite; break;
-            case "Paper": sr.sprite = paperSprite; break;
-            case "Scissors": sr.sprite = scissorsSprite; break;
+            case Choice.Rock: sr.sprite = rockSprite; break;
+            case Choice.Paper: sr.sprite = paperSprite; break;
+            case Choice.Scissors: sr.sprite = scissorsSprite; break;
             default: sr.sprite = defaultSprite; break;
         }
     }
 
+    public void ShowLosingSprite(Choice opponentChoice)
+    {
+        switch (opponentChoice)
+        {
+            case Choice.Rock: sr.sprite = GetLoseToRock(); break;
+            case Choice.Paper: sr.sprite = GetLoseToPaper(); break;
+            case Choice.Scissors: sr.sprite = GetLoseToScissors(); break;
+            default: sr.sprite = GetDefaultSprite(); break;
+        }
+    }
+
+
     public void ResetSprite()
     {
-        sr.sprite = defaultSprite;
-        player2Choice = "None"; // Reset between rounds
+        choice = Choice.None;
+        sr.sprite = GetDefaultSprite();
+    }
+
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
     }
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c16b2b77f7b7ec4f9ac940591880bda, type: 3}
-  m_Name: CharacterData
+  m_Name: Marhsmellow_Data
   m_EditorClassIdentifier: 
-  CharacterName: Marshmellow
-  idleSprite: {fileID: 2644597023220860706, guid: 6d2ed609d2df1364abb07ea75e6460cd, type: 3}
+  characterName: Marshmellow Guy
+  defaultSprite: {fileID: 2644597023220860706, guid: 6d2ed609d2df1364abb07ea75e6460cd, type: 3}
   rockSprite: {fileID: -6533947097388657621, guid: 43018eec0cf6809459956fb33530cce7, type: 3}
   paperSprite: {fileID: -6836508787781648347, guid: ca597249bf1c08941b4449b1355d2216, type: 3}
   scissorsSprite: {fileID: -5987200226849875633, guid: 9326ee7be0767fe479444ac01511b64c, type: 3}
-  loseRockSprite: {fileID: 2644597023220860706, guid: 33c4cde41005c7f4dac06286981cd918, type: 3}
-  losePaperSprite: {fileID: 8197032916013277071, guid: 1a8665909a08fef4f9e425751ddc0702, type: 3}
-  loseScissorsSprite: {fileID: 5064992197932465336, guid: 467f1383234be864cae81f127e8f1083, type: 3}
+  loseToRockSprite: {fileID: 2644597023220860706, guid: 33c4cde41005c7f4dac06286981cd918, type: 3}
+  loseToPaperSprite: {fileID: 8197032916013277071, guid: 1a8665909a08fef4f9e425751ddc0702, type: 3}
+  loseToScissorsSprite: {fileID: 5064992197932465336, guid: 467f1383234be864cae81f127e8f1083, type: 3}

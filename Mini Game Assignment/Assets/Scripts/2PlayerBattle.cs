@@ -15,8 +15,8 @@ public class Battle2Player : MonoBehaviour
     public Button bestOf3Button;
     public Button mainMenuButton;
 
-    public PlayerBattle player1;      // WASD
-    public Enemy player2;       // Arrow keys
+    public PlayerBattle player1;   // WASD
+    public Enemy player2;          // Arrow Keys or AI
 
     private bool inputLocked = false;
 
@@ -33,12 +33,12 @@ public class Battle2Player : MonoBehaviour
 
     IEnumerator StartBattleRound()
     {
-        // Reset and prepare
         inputLocked = false;
+
+        // Reset sprites + choices
         player1.ResetSprite();
         player2.ResetSprite();
-        player1.player1Choice = "None";
-        player2.player2Choice = "None";
+
         resultText.text = "";
 
         rockimage.gameObject.SetActive(false);
@@ -46,87 +46,99 @@ public class Battle2Player : MonoBehaviour
         scissorsimage.gameObject.SetActive(false);
         shootimage.gameObject.SetActive(false);
 
-        // Show Rock
+        // Countdown visuals
         rockimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         rockimage.gameObject.SetActive(false);
 
-        // Show Paper
         paperimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         paperimage.gameObject.SetActive(false);
 
-        // Show Scissors
         scissorsimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         scissorsimage.gameObject.SetActive(false);
 
-        // Show Shoot!
         shootimage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1);
         shootimage.gameObject.SetActive(false);
 
-        // Give both players 1 second to choose
+        // 1 second to input
         yield return new WaitForSeconds(1);
 
-        // Lock input and evaluate
+        // Lock input so choices freeze
         inputLocked = true;
 
-        string p1Choice = player1.player1Choice;
-        string p2Choice = player2.player2Choice;
+        Choice p1 = player1.choice;
+        Choice p2 = player2.choice;
 
-        // Reveal choices visually
-        player1.ShowChoice(p1Choice);
-        player2.ShowChoice(p2Choice);
-
-        // Determine results
-        if (p1Choice == "None" && p2Choice == "None")
+        // Reveal choices (they already set their sprites when SetChoice was called)
+        // If neither picked:
+        if (p1 == Choice.None && p2 == Choice.None)
         {
             EndBattleRound("Nobody chose!");
         }
-        else if (p1Choice == "None")
+        else if (p1 == Choice.None)
         {
             player2Wins++;
+            player1.ShowLosingSprite(Choice.None);
             EndBattleRound("Player 2 Wins by default!");
         }
-        else if (p2Choice == "None")
+        else if (p2 == Choice.None)
         {
             player1Wins++;
+            player2.ShowLosingSprite(Choice.None);
             EndBattleRound("Player 1 Wins by default!");
         }
         else
         {
-            EvaluateWinner(p1Choice, p2Choice);
+            EvaluateWinner(p1, p2);
         }
 
         roundCount++;
 
-        // After each round, show buttons
         bestOf3Button.gameObject.SetActive(true);
         mainMenuButton.gameObject.SetActive(true);
     }
 
-    void EvaluateWinner(string p1Choice, string p2Choice)
+    void Update()
     {
-        if (p1Choice == p2Choice)
+        if (inputLocked) return;
+
+        // Player 1 input (WASD)
+        if (Input.GetKeyDown(KeyCode.W)) player1.SetChoice(Choice.Rock);
+        if (Input.GetKeyDown(KeyCode.A)) player1.SetChoice(Choice.Paper);
+        if (Input.GetKeyDown(KeyCode.S)) player1.SetChoice(Choice.Scissors);
+
+        // Player 2 input (Arrow keys) - this mirrors the Enemy update path but allows faster local input
+        if (Input.GetKeyDown(KeyCode.UpArrow)) player2.SetChoice(Choice.Rock);
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) player2.SetChoice(Choice.Paper);
+        if (Input.GetKeyDown(KeyCode.DownArrow)) player2.SetChoice(Choice.Scissors);
+    }
+
+    void EvaluateWinner(Choice p1, Choice p2)
+    {
+        if (p1 == p2)
         {
             EndBattleRound("Draw! Again!");
             return;
         }
 
         bool p1Wins =
-            (p1Choice == "Rock" && p2Choice == "Scissors") ||
-            (p1Choice == "Paper" && p2Choice == "Rock") ||
-            (p1Choice == "Scissors" && p2Choice == "Paper");
+            (p1 == Choice.Rock && p2 == Choice.Scissors) ||
+            (p1 == Choice.Paper && p2 == Choice.Rock) ||
+            (p1 == Choice.Scissors && p2 == Choice.Paper);
 
         if (p1Wins)
         {
             player1Wins++;
+            player2.ShowLosingSprite(p1); // player2 shows the sprite for the choice that beat them (p1)
             EndBattleRound("Player 1 Wins!");
         }
         else
         {
             player2Wins++;
+            player1.ShowLosingSprite(p2);
             EndBattleRound("Player 2 Wins!");
         }
     }
@@ -138,13 +150,11 @@ public class Battle2Player : MonoBehaviour
         if (player1Wins >= 2)
         {
             resultText.text = "Player 1 is the Champion!";
-            mainMenuButton.gameObject.SetActive(true);
             bestOf3Button.gameObject.SetActive(false);
         }
         else if (player2Wins >= 2)
         {
             resultText.text = "Player 2 is the Champion!";
-            mainMenuButton.gameObject.SetActive(true);
             bestOf3Button.gameObject.SetActive(false);
         }
         else if (result.Contains("Draw"))
@@ -170,11 +180,9 @@ public class Battle2Player : MonoBehaviour
         }
         else
         {
-            // Reset everything for a new best-of-3 session
-            roundCount = 0;
             player1Wins = 0;
             player2Wins = 0;
-
+            roundCount = 0;
             StartCoroutine(StartBattleRound());
         }
     }
