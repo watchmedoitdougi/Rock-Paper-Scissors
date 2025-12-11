@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Raccoon_losetoscissors_0: 2933134397732369013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

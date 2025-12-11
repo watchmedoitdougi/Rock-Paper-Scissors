@@ -16,18 +16,32 @@ public class Battle : MonoBehaviour
     public PlayerBattle player;
     public Enemy enemy;
 
-    [Header("Gold")]
+    public Image backgroundImage;
+    public Sprite[] backgrounds;
+
+    void Start()
+    {
+            SetRandomBackground();
+            UpdateGoldText();
+            StartCoroutine(StartBattleRound());
+
+    }
+
+    void SetRandomBackground()
+    {
+        int index = Random.Range(0, backgrounds.Length);
+        backgroundImage.sprite = backgrounds[index];
+    }
+
+
+
+[Header("Gold")]
     public TMP_Text goldText;
     public int goldOnLose = 1;
     public int goldOnWin = 2;
 
     private bool inputLocked = false;
 
-    void Start()
-    {
-        UpdateGoldText();
-        StartCoroutine(StartBattleRound());
-    }
 
     IEnumerator StartBattleRound()
     {
@@ -37,24 +51,28 @@ public class Battle : MonoBehaviour
         player.ResetSprite();
         enemy.ResetSprite();
 
+        // Player can pick their choice BEFORE countdown
+        player.SetInputEnabled(true);
+
+        // Countdown (Rock → Paper → Scissors → Shoot!)
         yield return Countdown();
 
-        // Lock input so players can't change choice while we reveal
-        inputLocked = true;
+        // Lock input now that "Shoot!" has happened
+        player.SetInputEnabled(false);
 
-        // Pull final choices (they should have been set by input in their own scripts)
+        // Grab final choices
         Choice playerChoice = player.choice;
         Choice enemyChoice = enemy.choice;
 
-        // If enemy still has none (single-player), randomize it
+        // If enemy hasn't chosen, randomize
         if (enemyChoice == Choice.None)
             enemyChoice = (Choice)Random.Range(1, 4);
 
-        // Apply chosen sprites (calls on characters)
-        player.SetChoice(playerChoice);
+        // Reveal sprites
+        player.RevealChoice();
         enemy.SetChoice(enemyChoice);
 
-        // Empty choice = auto loss
+        // If player never made a choice, auto-lose
         if (playerChoice == Choice.None)
         {
             resultText.text = "No Choice — You Lose!";
@@ -69,9 +87,10 @@ public class Battle : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        // Allow next round
+        // Start next round
         StartCoroutine(StartBattleRound());
     }
+
 
     IEnumerator Countdown()
     {
@@ -91,6 +110,7 @@ public class Battle : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         shootimage.gameObject.SetActive(false);
     }
+
 
     void EvaluateWinner(Choice playerChoice, Choice enemyChoice)
     {

@@ -78,6 +78,10 @@ public class PlayerBattle : MonoBehaviour
     public void SetChoice(Choice newChoice)
     {
         choice = newChoice;
+    }
+
+    public void RevealChoice()
+    {
         switch (choice)
         {
             case Choice.Rock: sr.sprite = GetRock(); break;
@@ -86,6 +90,7 @@ public class PlayerBattle : MonoBehaviour
             default: sr.sprite = GetDefaultSprite(); break;
         }
     }
+
 
     // Shows the "I lost to X" sprite — argument is the opponent's winning choice
     public void ShowLosingSprite(Choice opponentChoice)

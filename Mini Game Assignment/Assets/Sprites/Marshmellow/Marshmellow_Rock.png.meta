@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marshmellow_Rock_0: -6533947097388657621
+      Marshmellow_Rock_1: -1490403397620962990
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Raccoon_Paper_0: -1111525828774184762
+      Raccoon_Paper_1: -6333241549747041589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

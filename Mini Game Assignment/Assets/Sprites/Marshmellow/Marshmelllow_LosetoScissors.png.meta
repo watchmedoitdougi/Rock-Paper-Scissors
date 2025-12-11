@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marshmelllow_LosetoScissors_0: 5064992197932465336
+      Marshmelllow_LosetoScissors_1: -4447628895121270817
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

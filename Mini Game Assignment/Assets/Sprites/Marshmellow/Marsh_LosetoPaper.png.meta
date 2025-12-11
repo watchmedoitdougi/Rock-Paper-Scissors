@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marsh_LosetoPaper_0: 8197032916013277071
+      Marsh_LosetoPaper_1: 5101249466772067476
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

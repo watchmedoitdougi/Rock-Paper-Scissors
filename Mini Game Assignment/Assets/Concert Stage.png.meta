@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9fef965f3709404d91b6f080b82b233
+guid: 824fb1101d80b8444adaa43c0ad3d091
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4993281259627231548
-    second: rps background_0
+      213: -410156186861314241
+    second: Concert Stage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rps background_0
+      name: Concert Stage_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3932bf99d2bb4540800000000000000
-      internalID: 4993281259627231548
+      spriteID: f3fd3b30f15de4af0800000000000000
+      internalID: -410156186861314241
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rps background_0: 4993281259627231548
+      Concert Stage_0: -410156186861314241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

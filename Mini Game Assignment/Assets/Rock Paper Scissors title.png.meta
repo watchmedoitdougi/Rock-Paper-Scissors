@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rock Paper Scissors title_0: 8572093738907161506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
