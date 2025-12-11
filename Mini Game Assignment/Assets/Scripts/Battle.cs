@@ -5,6 +5,8 @@ using TMPro;
 
 public class Battle : MonoBehaviour
 {
+
+    //these are in the inspector until
     [Header("UI / Countdown")]
     public SpriteRenderer rockimage;
     public SpriteRenderer paperimage;
@@ -12,19 +14,23 @@ public class Battle : MonoBehaviour
     public SpriteRenderer shootimage;
     public TMP_Text resultText;
 
+    [Header("UI Panels")]
+    public GameObject mainMenuPanel;
+    public GameObject bestOf3Panel;
+
     [Header("Characters")]
     public PlayerBattle player;
     public Enemy enemy;
 
     public Image backgroundImage;
     public Sprite[] backgrounds;
+    //here
 
     void Start()
     {
             SetRandomBackground();
             UpdateGoldText();
             StartCoroutine(StartBattleRound());
-
     }
 
     void SetRandomBackground()
@@ -45,6 +51,10 @@ public class Battle : MonoBehaviour
 
     IEnumerator StartBattleRound()
     {
+        mainMenuPanel.SetActive(false);
+        bestOf3Panel.SetActive(false);
+
+
         inputLocked = false;
         resultText.text = "";
 
