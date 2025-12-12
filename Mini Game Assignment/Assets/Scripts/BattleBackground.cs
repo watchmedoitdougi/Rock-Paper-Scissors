@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public class BattleBackground : MonoBehaviour
 {
-    public Image backgroundImage;     // Your fullscreen UI Image
-    public Sprite forestBG;
+    public Image backgroundImage;  // The main background image
+
+    public Sprite skateparkBG;
     public Sprite japanBG;
     public Sprite stageBG;
 
@@ -12,8 +13,8 @@ public class BattleBackground : MonoBehaviour
     {
         switch (name)
         {
-            case "Forest":
-                backgroundImage.sprite = forestBG;
+            case "Skatepark":
+                backgroundImage.sprite = skateparkBG;
                 break;
             case "Japan":
                 backgroundImage.sprite = japanBG;
@@ -23,7 +24,23 @@ public class BattleBackground : MonoBehaviour
                 break;
         }
 
-        // This makes sure the sprite scales correctly
-        backgroundImage.SetNativeSize();
+    }
+
+    public void SetRandomBackground()
+    {
+        int r = Random.Range(0, 3);
+
+        switch (r)
+        {
+            case 0:
+                SetBackground("Skatepark");
+                break;
+            case 1:
+                SetBackground("Japan");
+                break;
+            case 2:
+                SetBackground("Stage");
+                break;
+        }
     }
 }

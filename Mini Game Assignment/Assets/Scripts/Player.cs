@@ -61,9 +61,9 @@ public class PlayerBattle : MonoBehaviour
 
         // Optional: keyboard fallback (WASD)
         if (Input.GetKeyDown(KeyCode.W)) SetChoice(Choice.Rock);
-        if (Input.GetKeyDown(KeyCode.D)) SetChoice(Choice.Rock);
+        if (Input.GetKeyDown(KeyCode.S)) SetChoice(Choice.Rock);
         if (Input.GetKeyDown(KeyCode.A)) SetChoice(Choice.Paper);
-        if (Input.GetKeyDown(KeyCode.S)) SetChoice(Choice.Scissors);
+        if (Input.GetKeyDown(KeyCode.D)) SetChoice(Choice.Scissors);
     }
 
     // Helper getters that fall back to direct sprites if `data` is null

@@ -31,6 +31,10 @@ public class Battle : MonoBehaviour
     public AudioClip loseSound;
     public AudioClip drawSound;
 
+    [Header("Backgrounds")]
+    public BattleBackground backgroundManager;
+
+
     [Header("Manager")]
     public BestOf3Manager bestOf3Manager; // optional, assign if you use Bo3 manager
 
@@ -42,8 +46,10 @@ public class Battle : MonoBehaviour
         mainMenuPanel.SetActive(false);
         bestOf3Button.SetActive(false);
 
-        StartBattleRound();
+        if (backgroundManager != null)
+            backgroundManager.SetRandomBackground();
 
+        StartBattleRound();
     }
 
     // Public entry used by UI or BestOf3Manager
@@ -56,6 +62,9 @@ public class Battle : MonoBehaviour
 
     IEnumerator BattleRoutine()
     {
+        if (backgroundManager != null)
+            backgroundManager.SetRandomBackground();
+
         // Reset UI & sprites
         mainMenuPanel.SetActive(false);
         bestOf3Button.SetActive(false);

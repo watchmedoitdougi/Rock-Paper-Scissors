@@ -27,6 +27,9 @@ public class Battle2Player : MonoBehaviour
     public AudioClip loseSound;
     public AudioClip drawSound;
 
+    [Header("Backgrounds")]
+    public BattleBackground backgroundManager;
+
     private bool inputLocked = false;
 
     private int player1Wins = 0;
@@ -37,11 +40,18 @@ public class Battle2Player : MonoBehaviour
     {
         bestOf3Button.gameObject.SetActive(false);
         mainMenuButton.gameObject.SetActive(false);
+
+        if (backgroundManager != null)
+            backgroundManager.SetRandomBackground();
+
         StartCoroutine(StartBattleRound());
     }
 
     IEnumerator StartBattleRound()
     {
+        if (backgroundManager != null)
+            backgroundManager.SetRandomBackground();
+
         inputLocked = false;
 
         // Reset sprites + choices
