@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Raccon_Data
   m_EditorClassIdentifier: 
   characterName: Raccoon
-  defaultSprite: {fileID: 802712436491807689, guid: c927901b5fec98743b70bb30e9c679e6, type: 3}
-  rockSprite: {fileID: 8478291096960639264, guid: 9a508f16a2024974e900e0476f9807fb, type: 3}
+  defaultSprite: {fileID: -7280169748082540770, guid: c927901b5fec98743b70bb30e9c679e6, type: 3}
+  rockSprite: {fileID: 3018553773392857209, guid: cf9251d29a40c5845aa2057c2a15c3e3, type: 3}
   paperSprite: {fileID: -1111525828774184762, guid: b0bac2e0bc69da14bbca73119049d7aa, type: 3}
-  scissorsSprite: {fileID: 6756352413241994222, guid: 4b7b9e156f2bbf74796d5995c1211bd6, type: 3}
-  loseToRockSprite: {fileID: -896105580961327914, guid: 0fc8a91b9d774744ebaf75de4e353cb7, type: 3}
+  scissorsSprite: {fileID: -1994160289026272978, guid: e5d81515bd972e44abf5933a93542400, type: 3}
+  loseToRockSprite: {fileID: -6409133059608857826, guid: 95fa2c1a2c15b314b9e2bbec7f6b3ee2, type: 3}
   loseToPaperSprite: {fileID: 4687068998157649237, guid: 4ab0689e259b19b4c864624c7db69e97, type: 3}
-  loseToScissorsSprite: {fileID: 2933134397732369013, guid: 0ad81a395a5f455409f4d8c258c5caf6, type: 3}
+  loseToScissorsSprite: {fileID: 9166052764513840317, guid: d5460e2d442c90446ae7295c339dfa53, type: 3}

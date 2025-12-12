@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c16b2b77f7b7ec4f9ac940591880bda, type: 3}
   m_Name: SkateboardKid
   m_EditorClassIdentifier: 
-  CharacterName: Skateboard Kid
-  idleSprite: {fileID: -5543692333027054466, guid: d6c5ee5f1bdf27a43901c79f18acd932, type: 3}
+  characterName: Skateboard Kid
+  defaultSprite: {fileID: -2991383396012948904, guid: 3b2a7291507a80c438a297452a78db10, type: 3}
   rockSprite: {fileID: -2182124076254010665, guid: c33cb2ffa7cea5a4b8a6678606263547, type: 3}
   paperSprite: {fileID: -1469909079130451432, guid: 9e4af74d2e631fb4ba4ac10f9674d8c7, type: 3}
   scissorsSprite: {fileID: 6689946350199266671, guid: 78c64c08248da5343bcd3b094debdcc0, type: 3}
-  loseRockSprite: {fileID: 2801112886939389064, guid: bd4fcd69f6f68e446b80efde059e57ce, type: 3}
-  losePaperSprite: {fileID: 2983176672526510472, guid: ba882aa5692675240acdda8bb2e8d41a, type: 3}
-  loseScissorsSprite: {fileID: -1171882843668213869, guid: 1810d872ed6a1fd4c976d65db5275e20, type: 3}
+  loseToRockSprite: {fileID: 2801112886939389064, guid: bd4fcd69f6f68e446b80efde059e57ce, type: 3}
+  loseToPaperSprite: {fileID: 2983176672526510472, guid: ba882aa5692675240acdda8bb2e8d41a, type: 3}
+  loseToScissorsSprite: {fileID: -1171882843668213869, guid: 1810d872ed6a1fd4c976d65db5275e20, type: 3}

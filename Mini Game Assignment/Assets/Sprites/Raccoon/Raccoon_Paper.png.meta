@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -1111525828774184762
     second: Raccoon_Paper_0
-  - first:
-      213: -6333241549747041589
-    second: Raccoon_Paper_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,10 +116,10 @@ TextureImporter:
       name: Raccoon_Paper_0
       rect:
         serializedVersion: 2
-        x: 151
-        y: 613
-        width: 11
-        height: 24
+        x: 278
+        y: 61
+        width: 981
+        height: 901
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,28 +130,6 @@ TextureImporter:
       bones: []
       spriteID: 6c83e39d5211390f0800000000000000
       internalID: -1111525828774184762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Raccoon_Paper_1
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 40
-        width: 980
-        height: 944
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bca459e8d5ecb18a0800000000000000
-      internalID: -6333241549747041589
       vertices: []
       indices: 
       edges: []
@@ -174,7 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Raccoon_Paper_0: -1111525828774184762
-      Raccoon_Paper_1: -6333241549747041589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

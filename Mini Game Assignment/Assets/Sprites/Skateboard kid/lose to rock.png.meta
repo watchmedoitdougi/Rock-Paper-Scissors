@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: 2801112886939389064
     second: lose to rock_0
-  - first:
-      213: -8742556872798195621
-    second: lose to rock_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,10 +116,10 @@ TextureImporter:
       name: lose to rock_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 1024
-        height: 1019
+        x: 382
+        y: 67
+        width: 893
+        height: 896
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,28 +130,6 @@ TextureImporter:
       bones: []
       spriteID: 88c8ac9645d8fd620800000000000000
       internalID: 2801112886939389064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lose to rock_1
-      rect:
-        serializedVersion: 2
-        x: 1012
-        y: 354
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b50b63028d23ca680800000000000000
-      internalID: -8742556872798195621
       vertices: []
       indices: 
       edges: []
@@ -174,7 +149,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       lose to rock_0: 2801112886939389064
-      lose to rock_1: -8742556872798195621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -6,17 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class Battle2Player : MonoBehaviour
 {
-    public SpriteRenderer rockimage;
-    public SpriteRenderer paperimage;
-    public SpriteRenderer scissorsimage;
-    public SpriteRenderer shootimage;
-    public TMP_Text resultText;
+    [Header("Countdown UI")]
+    public Image rockimage;
+    public Image paperimage;
+    public Image scissorsimage;
+    public Image shootimage;
 
+    [Header("UI")]
+    public TMP_Text resultText;
     public Button bestOf3Button;
     public Button mainMenuButton;
 
-    public PlayerBattle player1;   // WASD
-    public Enemy player2;          // Arrow Keys or AI
+    [Header("Players")]
+    public PlayerBattle player1;   // WASD controls
+    public Enemy player2;          // Arrow key controls
+
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip winSound;
+    public AudioClip loseSound;
+    public AudioClip drawSound;
 
     private bool inputLocked = false;
 
@@ -63,30 +72,36 @@ public class Battle2Player : MonoBehaviour
         yield return new WaitForSeconds(1);
         shootimage.gameObject.SetActive(false);
 
-        // 1 second to input
+        // Input window
         yield return new WaitForSeconds(1);
 
-        // Lock input so choices freeze
+        // Lock input
         inputLocked = true;
+
+        // Reveal sprites
+        player1.RevealChoice();
+        player2.RevealChoice();
 
         Choice p1 = player1.choice;
         Choice p2 = player2.choice;
 
-        // Reveal choices (they already set their sprites when SetChoice was called)
-        // If neither picked:
+        // Handle no input
         if (p1 == Choice.None && p2 == Choice.None)
         {
+            PlayDrawSound();
             EndBattleRound("Nobody chose!");
         }
         else if (p1 == Choice.None)
         {
             player2Wins++;
+            PlayLoseSound();   // P1 loses
             player1.ShowLosingSprite(Choice.None);
             EndBattleRound("Player 2 Wins by default!");
         }
         else if (p2 == Choice.None)
         {
             player1Wins++;
+            PlayWinSound();    // P1 wins
             player2.ShowLosingSprite(Choice.None);
             EndBattleRound("Player 1 Wins by default!");
         }
@@ -96,21 +111,18 @@ public class Battle2Player : MonoBehaviour
         }
 
         roundCount++;
-
-        bestOf3Button.gameObject.SetActive(true);
-        mainMenuButton.gameObject.SetActive(true);
     }
 
     void Update()
     {
         if (inputLocked) return;
 
-        // Player 1 input (WASD)
+        // Player 1 (WASD)
         if (Input.GetKeyDown(KeyCode.W)) player1.SetChoice(Choice.Rock);
         if (Input.GetKeyDown(KeyCode.A)) player1.SetChoice(Choice.Paper);
         if (Input.GetKeyDown(KeyCode.S)) player1.SetChoice(Choice.Scissors);
 
-        // Player 2 input (Arrow keys) - this mirrors the Enemy update path but allows faster local input
+        // Player 2 (arrow keys)
         if (Input.GetKeyDown(KeyCode.UpArrow)) player2.SetChoice(Choice.Rock);
         if (Input.GetKeyDown(KeyCode.LeftArrow)) player2.SetChoice(Choice.Paper);
         if (Input.GetKeyDown(KeyCode.DownArrow)) player2.SetChoice(Choice.Scissors);
@@ -120,6 +132,7 @@ public class Battle2Player : MonoBehaviour
     {
         if (p1 == p2)
         {
+            PlayDrawSound();
             EndBattleRound("Draw! Again!");
             return;
         }
@@ -132,12 +145,14 @@ public class Battle2Player : MonoBehaviour
         if (p1Wins)
         {
             player1Wins++;
-            player2.ShowLosingSprite(p1); // player2 shows the sprite for the choice that beat them (p1)
+            PlayWinSound();
+            player2.ShowLosingSprite(p1);
             EndBattleRound("Player 1 Wins!");
         }
         else
         {
             player2Wins++;
+            PlayLoseSound();
             player1.ShowLosingSprite(p2);
             EndBattleRound("Player 2 Wins!");
         }
@@ -147,21 +162,26 @@ public class Battle2Player : MonoBehaviour
     {
         resultText.text = result;
 
+        // Champion
         if (player1Wins >= 2)
         {
             resultText.text = "Player 1 is the Champion!";
-            bestOf3Button.gameObject.SetActive(false);
+            bestOf3Button.gameObject.SetActive(true);
+            mainMenuButton.gameObject.SetActive(true);
+            return;
         }
-        else if (player2Wins >= 2)
+        if (player2Wins >= 2)
         {
             resultText.text = "Player 2 is the Champion!";
-            bestOf3Button.gameObject.SetActive(false);
+            bestOf3Button.gameObject.SetActive(true);
+            mainMenuButton.gameObject.SetActive(true);
+            return;
         }
-        else if (result.Contains("Draw"))
-        {
-            StartCoroutine(RestartAfterDelay());
-        }
+
+        // Continue match
+        StartCoroutine(RestartAfterDelay());
     }
+
 
     IEnumerator RestartAfterDelay()
     {
@@ -190,5 +210,23 @@ public class Battle2Player : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    void PlayWinSound()
+    {
+        if (audioSource != null && winSound != null)
+            audioSource.PlayOneShot(winSound);
+    }
+
+    void PlayLoseSound()
+    {
+        if (audioSource != null && loseSound != null)
+            audioSource.PlayOneShot(loseSound);
+    }
+
+    void PlayDrawSound()
+    {
+        if (audioSource != null && drawSound != null)
+            audioSource.PlayOneShot(drawSound);
     }
 }

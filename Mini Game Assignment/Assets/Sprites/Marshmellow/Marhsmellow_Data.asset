@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Marhsmellow_Data
   m_EditorClassIdentifier: 
   characterName: Marshmellow Guy
-  defaultSprite: {fileID: 2644597023220860706, guid: 6d2ed609d2df1364abb07ea75e6460cd, type: 3}
-  rockSprite: {fileID: -6533947097388657621, guid: 43018eec0cf6809459956fb33530cce7, type: 3}
-  paperSprite: {fileID: -6836508787781648347, guid: ca597249bf1c08941b4449b1355d2216, type: 3}
-  scissorsSprite: {fileID: -5987200226849875633, guid: 9326ee7be0767fe479444ac01511b64c, type: 3}
-  loseToRockSprite: {fileID: 2644597023220860706, guid: 33c4cde41005c7f4dac06286981cd918, type: 3}
-  loseToPaperSprite: {fileID: 8197032916013277071, guid: 1a8665909a08fef4f9e425751ddc0702, type: 3}
-  loseToScissorsSprite: {fileID: 5064992197932465336, guid: 467f1383234be864cae81f127e8f1083, type: 3}
+  defaultSprite: {fileID: -6750454126564038695, guid: 56e623b9bfdd9ac4da97b7aeb968ac58, type: 3}
+  rockSprite: {fileID: 7178476798695842128, guid: 28b9cff8b2a4a1745bf60715a9c85da5, type: 3}
+  paperSprite: {fileID: -9189587640445161167, guid: 3bbeaa7ed9c4eb44a829e321fc636098, type: 3}
+  scissorsSprite: {fileID: -2508044513665072215, guid: becb10e8cb793be459e3211a695785f0, type: 3}
+  loseToRockSprite: {fileID: -8047253989617651296, guid: 97cc3265d5eb6db429415021b30edbcc, type: 3}
+  loseToPaperSprite: {fileID: -8667962505459564094, guid: 786afc41d73f84a4484eccb05c320077, type: 3}
+  loseToScissorsSprite: {fileID: -1414353307593375659, guid: 7aa42ca443bf91640a6b99ef6a129de5, type: 3}

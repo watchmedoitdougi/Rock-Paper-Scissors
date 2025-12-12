@@ -1,0 +1,416 @@
+fileFormatVersion: 2
+guid: 786afc41d73f84a4484eccb05c320077
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8850058914900441354
+    second: Marsh_LosetoPaper 1_0
+  - first:
+      213: -8979615137239148711
+    second: Marsh_LosetoPaper 1_1
+  - first:
+      213: 8010648257067688789
+    second: Marsh_LosetoPaper 1_2
+  - first:
+      213: -9195585516086576844
+    second: Marsh_LosetoPaper 1_3
+  - first:
+      213: -8667962505459564094
+    second: Marsh_LosetoPaper 1_4
+  - first:
+      213: 1277196452183929890
+    second: Marsh_LosetoPaper 1_5
+  - first:
+      213: -7736701447199539569
+    second: Marsh_LosetoPaper 1_6
+  - first:
+      213: 7426637852876375268
+    second: Marsh_LosetoPaper 1_7
+  - first:
+      213: 5438452786036570631
+    second: Marsh_LosetoPaper 1_8
+  - first:
+      213: 2827108996888751190
+    second: Marsh_LosetoPaper 1_9
+  - first:
+      213: 5339762109540894631
+    second: Marsh_LosetoPaper 1_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_0
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 899
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f684187e464e2580800000000000000
+      internalID: -8850058914900441354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_1
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 914
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 957d325db9ff16380800000000000000
+      internalID: -8979615137239148711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_2
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 907
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5532f17c52a8b2f60800000000000000
+      internalID: 8010648257067688789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_3
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 823
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439bee381b7b26080800000000000000
+      internalID: -9195585516086576844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_4
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 79
+        width: 810
+        height: 799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c18dafa60635b780800000000000000
+      internalID: -8667962505459564094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_5
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 731
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224ffc8086389b110800000000000000
+      internalID: 1277196452183929890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_6
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 682
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ebb6a4607b1a490800000000000000
+      internalID: -7736701447199539569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_7
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 594
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e48a2877c7b01760800000000000000
+      internalID: 7426637852876375268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_8
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 304
+        width: 12
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a7177aef3497b40800000000000000
+      internalID: 5438452786036570631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_9
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 73
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c6ddc67a8eb3720800000000000000
+      internalID: 2827108996888751190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marsh_LosetoPaper 1_10
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 77
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7864ce855aa1a40800000000000000
+      internalID: 5339762109540894631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Marsh_LosetoPaper 1_0: -8850058914900441354
+      Marsh_LosetoPaper 1_1: -8979615137239148711
+      Marsh_LosetoPaper 1_10: 5339762109540894631
+      Marsh_LosetoPaper 1_2: 8010648257067688789
+      Marsh_LosetoPaper 1_3: -9195585516086576844
+      Marsh_LosetoPaper 1_4: -8667962505459564094
+      Marsh_LosetoPaper 1_5: 1277196452183929890
+      Marsh_LosetoPaper 1_6: -7736701447199539569
+      Marsh_LosetoPaper 1_7: 7426637852876375268
+      Marsh_LosetoPaper 1_8: 5438452786036570631
+      Marsh_LosetoPaper 1_9: 2827108996888751190
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

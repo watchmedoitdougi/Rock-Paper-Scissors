@@ -5,129 +5,181 @@ using TMPro;
 
 public class Battle : MonoBehaviour
 {
-
-    //these are in the inspector until
-    [Header("UI / Countdown")]
-    public SpriteRenderer rockimage;
-    public SpriteRenderer paperimage;
-    public SpriteRenderer scissorsimage;
-    public SpriteRenderer shootimage;
+    [Header("Countdown UI")]
+    public Image rockImage;
+    public Image paperImage;
+    public Image scissorsImage;
+    public Image shootImage;
     public TMP_Text resultText;
-
-    [Header("UI Panels")]
-    public GameObject mainMenuPanel;
-    public GameObject bestOf3Panel;
 
     [Header("Characters")]
     public PlayerBattle player;
     public Enemy enemy;
 
-    public Image backgroundImage;
-    public Sprite[] backgrounds;
-    //here
+    [Header("UI")]
+    public GameObject mainMenuPanel;    // shows after normal win or after final Bo3
+    public GameObject bestOf3Button;    // shows on normal loss to let player start Bo3
 
-    void Start()
-    {
-            SetRandomBackground();
-            UpdateGoldText();
-            StartCoroutine(StartBattleRound());
-    }
-
-    void SetRandomBackground()
-    {
-        int index = Random.Range(0, backgrounds.Length);
-        backgroundImage.sprite = backgrounds[index];
-    }
-
-
-
-[Header("Gold")]
+    [Header("Gold")]
     public TMP_Text goldText;
     public int goldOnLose = 1;
     public int goldOnWin = 2;
 
-    private bool inputLocked = false;
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip winSound;
+    public AudioClip loseSound;
+    public AudioClip drawSound;
 
+    [Header("Manager")]
+    public BestOf3Manager bestOf3Manager; // optional, assign if you use Bo3 manager
 
-    IEnumerator StartBattleRound()
+    private Coroutine runningRound;
+
+    void Start()
     {
+        UpdateGoldText();
         mainMenuPanel.SetActive(false);
-        bestOf3Panel.SetActive(false);
+        bestOf3Button.SetActive(false);
 
+        StartBattleRound();
 
-        inputLocked = false;
+    }
+
+    // Public entry used by UI or BestOf3Manager
+    public void StartBattleRound()
+    {
+        // Cancel any existing round coroutine to be safe, then start new round.
+        if (runningRound != null) StopCoroutine(runningRound);
+        runningRound = StartCoroutine(BattleRoutine());
+    }
+
+    IEnumerator BattleRoutine()
+    {
+        // Reset UI & sprites
+        mainMenuPanel.SetActive(false);
+        bestOf3Button.SetActive(false);
+
         resultText.text = "";
 
         player.ResetSprite();
         enemy.ResetSprite();
 
-        // Player can pick their choice BEFORE countdown
+        // Enable input
         player.SetInputEnabled(true);
 
-        // Countdown (Rock → Paper → Scissors → Shoot!)
+        // Countdown
         yield return Countdown();
 
-        // Lock input now that "Shoot!" has happened
+        // Lock input
         player.SetInputEnabled(false);
 
-        // Grab final choices
-        Choice playerChoice = player.choice;
-        Choice enemyChoice = enemy.choice;
+        // Get choices
+        Choice pChoice = player.choice;
+        Choice eChoice = enemy.choice;
+        if (eChoice == Choice.None)
+            eChoice = (Choice)Random.Range(1, 4);
 
-        // If enemy hasn't chosen, randomize
-        if (enemyChoice == Choice.None)
-            enemyChoice = (Choice)Random.Range(1, 4);
-
-        // Reveal sprites
+        // Reveal visuals
         player.RevealChoice();
-        enemy.SetChoice(enemyChoice);
+        enemy.SetChoice(eChoice);
 
-        // If player never made a choice, auto-lose
-        if (playerChoice == Choice.None)
+        // Evaluate and react
+        string winner = EvaluateRound(pChoice, eChoice);
+
+        // Play win/lose sound BEFORE Bo3 exits
+        if (winner == "Player")
+            PlayResultSound(true);
+        else if (winner == "Enemy")
+            PlayResultSound(false);
+
+        // If we're in a Bo3 flow managed externally, report result to the manager:
+        if (bestOf3Manager != null && bestOf3Manager.IsActive)
         {
-            resultText.text = "No Choice — You Lose!";
-            AddGold(goldOnLose);
+            bestOf3Manager.ReportResult(winner);
+            yield break; // now safe, sound already played
         }
-        else
+
+        // Normal (non-Bo3) behavior:
+        if (winner == "Enemy")
         {
-            EvaluateWinner(playerChoice, enemyChoice);
+            // Player lost normal match -> allow them to start Bo3 or return to menu
+            bestOf3Button.SetActive(true);
+            mainMenuPanel.SetActive(true);
+        }
+        else if (winner == "Player")
+        {
+            // Player won -> go back to menu
+            mainMenuPanel.SetActive(true);
+        }
+        else // Draw
+        {
+            // For a normal draw we can auto-restart a single new round after short delay
+            yield return new WaitForSeconds(1.2f);
+            StartBattleRound();
         }
 
-        UpdateGoldText();
+        // Play win/lose sounds
+        if (winner == "Player")
+            PlayResultSound(true);
+        else if (winner == "Enemy")
+            PlayResultSound(false);
+    }
 
-        yield return new WaitForSeconds(1.5f);
+    public void PlayResultSound(bool didWin)
+    {
+        if (audioSource == null) return;
 
-        // Start next round
-        StartCoroutine(StartBattleRound());
+        if (didWin && winSound != null)
+            audioSource.PlayOneShot(winSound);
+        else if (!didWin && loseSound != null)
+            audioSource.PlayOneShot(loseSound);
     }
 
 
     IEnumerator Countdown()
     {
-        rockimage.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        rockimage.gameObject.SetActive(false);
+        rockImage.gameObject.SetActive(false);
+        paperImage.gameObject.SetActive(false);
+        scissorsImage.gameObject.SetActive(false);
+        shootImage.gameObject.SetActive(false);
 
-        paperimage.gameObject.SetActive(true);
+        rockImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        paperimage.gameObject.SetActive(false);
+        rockImage.gameObject.SetActive(false);
 
-        scissorsimage.gameObject.SetActive(true);
+        paperImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        scissorsimage.gameObject.SetActive(false);
+        paperImage.gameObject.SetActive(false);
 
-        shootimage.gameObject.SetActive(true);
+        scissorsImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        scissorsImage.gameObject.SetActive(false);
+
+        shootImage.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.7f);
-        shootimage.gameObject.SetActive(false);
+        shootImage.gameObject.SetActive(false);
     }
 
-
-    void EvaluateWinner(Choice playerChoice, Choice enemyChoice)
+    // Returns "Player", "Enemy" or "Draw"
+    string EvaluateRound(Choice playerChoice, Choice enemyChoice)
     {
+        if (playerChoice == Choice.None)
+        {
+            resultText.text = "No Choice — You Lose!";
+            AddGold(goldOnLose);
+            return "Enemy";
+        }
+
         if (playerChoice == enemyChoice)
         {
             resultText.text = "Draw!";
-            return;
+
+            // Play draw sound
+            if (audioSource != null && drawSound != null)
+                audioSource.PlayOneShot(drawSound);
+
+            return "Draw";
         }
 
         bool playerWins =
@@ -139,16 +191,25 @@ public class Battle : MonoBehaviour
         {
             resultText.text = "You Win!";
             AddGold(goldOnWin);
-            // enemy shows the losing sprite for *the choice that beat them* (playerChoice)
             enemy.ShowLosingSprite(playerChoice);
+            return "Player";
         }
         else
         {
             resultText.text = "You Lose!";
             AddGold(goldOnLose);
-            // player shows losing sprite for the choice that beat them (enemyChoice)
             player.ShowLosingSprite(enemyChoice);
+            return "Enemy";
         }
+    }
+
+
+
+    public void ShowFinalResult(string message)
+    {
+        // Called by BestOf3Manager at the end of Bo3
+        resultText.text = message;
+        mainMenuPanel.SetActive(true);
     }
 
     void AddGold(int amount)
@@ -156,11 +217,17 @@ public class Battle : MonoBehaviour
         int current = PlayerPrefs.GetInt("Gold", 0);
         PlayerPrefs.SetInt("Gold", current + amount);
         PlayerPrefs.Save();
+        UpdateGoldText();
     }
 
     void UpdateGoldText()
     {
         if (goldText != null)
             goldText.text = "Gold: " + PlayerPrefs.GetInt("Gold", 0);
+    }
+
+    public void GoToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }

@@ -61,14 +61,20 @@ public class Enemy : MonoBehaviour
     public void SetChoice(Choice newChoice)
     {
         choice = newChoice;
-        switch (newChoice)
+        // Do NOT show the sprite yet — revealed later
+    }
+
+    public void RevealChoice()
+    {
+        switch (choice)
         {
-            case Choice.Rock: sr.sprite = rockSprite; break;
-            case Choice.Paper: sr.sprite = paperSprite; break;
-            case Choice.Scissors: sr.sprite = scissorsSprite; break;
-            default: sr.sprite = defaultSprite; break;
+            case Choice.Rock: sr.sprite = GetRock(); break;
+            case Choice.Paper: sr.sprite = GetPaper(); break;
+            case Choice.Scissors: sr.sprite = GetScissors(); break;
+            default: sr.sprite = GetDefaultSprite(); break;
         }
     }
+
 
     public void ShowLosingSprite(Choice opponentChoice)
     {
